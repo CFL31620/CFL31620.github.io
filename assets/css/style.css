@@ -1,0 +1,315 @@
+/* Style global */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* En-tête */
+header {
+  background: #333;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+/* Logo */
+.logo {
+  height: 50px;
+  margin-right: 1rem;
+}
+
+/* Menu de navigation */
+nav a {
+  color: #fff;
+  margin-right: 1rem;
+  text-decoration: none;
+}
+nav a.active {
+  text-decoration: underline;
+}
+
+/* Contenu principal */
+main {
+  padding: 1rem;
+}
+
+/* Pied de page */
+footer {
+  background: #f0f0f0;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+/* Tableaux */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+/* Spécifique #order-table */
+#order-table th:first-child,
+#order-table td:first-child {
+  width: 150px;
+  text-align: left;
+  padding-left: 8px;
+}
+#order-table th:nth-child(4),
+#order-table td:nth-child(4) {
+  width: 80px;
+  text-align: center;
+  padding: 0 4px;
+}
+#order-table th,
+#order-table td {
+  text-align: center !important;
+}
+
+/* Ligne promo */
+.promo-title {
+  color: blue;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Formulaire & instructions */
+.how-to-use {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.usage-instructions,
+.pricing-conditions {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 1.5rem;
+}
+.usage-instructions h3,
+.pricing-conditions h3 {
+  color: #00529b;
+  margin-top: 0;
+}
+.usage-instructions ol {
+  margin: 0.5rem 0 1rem 1rem;
+}
+.usage-instructions .cta {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #0077b6;
+}
+
+/* Conditions & Remises */
+.pricing-conditions {
+  background: #f0f8ff;
+  border-color: #b3d4fc;
+}
+.pricing-conditions .conditions-list {
+  list-style: none;
+  margin: 0.75rem 0 0 0;
+  padding: 0;
+}
+.pricing-conditions .conditions-list li {
+  margin-bottom: 0.5rem;
+}
+.pricing-conditions .conditions-list ul {
+  list-style: disc inside;
+  margin-left: 1rem;
+}
+
+/* Présentation image, centré et responsive */
+.presentation {
+  text-align: center;
+  margin: 2rem 0;
+}
+.presentation img {
+  display: block;
+  max-width: 100%;
+  width: 500px;
+  height: auto;
+  margin: 0 auto 1rem;
+}
+
+/* Title grille tarifaire centré et bleu */
+#tarif-title {
+  text-align: center;
+  color: #00529b;
+  font-size: 2.25rem;
+  margin: 1.5rem 0;
+  font-weight: 600;
+}
+
+/* Actions PDF/Mail/WhatsApp */
+.actions {
+  margin-top: 1rem;
+}
+.actions button {
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+/* Impression */
+@media print {
+  /* Masquer en-tête, pied de page, formulaire de calcul et boutons à l’écran et dans le PDF */
+  header,
+  footer,
+  #form-calcul,
+  .actions,
+  button {
+    display: none !important;
+  }
+
+  /* Ajuster le rendu du tableau */
+  table {
+    width: 100%;
+    border: 1px solid #000;
+  }
+  th,
+  td {
+    border: 1px solid #000;
+    padding: 0.2em;
+  }
+
+  /* Taille du texte pour impression */
+  body {
+    font-size: 12pt;
+  }
+}
+
+
+/* Responsive desktop : deux colonnes pour how-to-use */
+@media (min-width: 768px) {
+  .how-to-use {
+    grid-template-columns: 2fr 1.5fr;
+  }
+/* ==========================================================================
+   Présentation + 3 blocs texte côte-à-côte
+   ========================================================================== */
+.presentation-about {
+  display: flex;               /* flex-container */
+  gap: 1.5rem;                 /* espace horizontal */
+  align-items: flex-start;     /* alignement haut */
+  margin: 2rem 0;
+}
+
+/* Bloc image fixe à 400px */
+.presentation-about .promo-image {
+  flex: 0 0 400px;
+}
+.presentation-about .promo-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Les 3 blocs texte partagent l’espace restant */
+.presentation-about .about-section {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Titres */
+.presentation-about .about-section h2 {
+  color: #00529b;
+  font-size: 1.5rem;
+  margin: 0 0 0.75rem;
+  border-bottom: 2px solid #00529b;
+  display: inline-block;
+  padding-bottom: 0.25rem;
+}
+
+/* Listes */
+.presentation-about .about-section ul {
+  list-style: disc inside;
+  margin: 0.5rem 0 0 0;
+  padding: 0;
+}
+.presentation-about .about-section ul ul {
+  list-style: circle inside;
+  margin-left: 1rem;
+}
+.presentation-about .about-section li {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+/* Responsive : passe en colonne sous 900px */
+@media (max-width: 900px) {
+  .presentation-about {
+    flex-direction: column;
+    align-items: center;
+  }
+  .presentation-about .about-section {
+    width: 100%;
+  }
+  .presentation-about .promo-image {
+    flex: 0 0 auto;
+    max-width: 100%;
+  }
+}
+/* ==== Top row : 3 colonnes côte-à-côte ==== */
+.top-row {
+  display: flex;
+  gap: 1.5rem;
+  margin: 2rem 0;
+  align-items: flex-start;
+}
+.top-row .col {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+/* Titres soulignés en bleu */
+.top-row .col h3 {
+  margin-top: 0;
+  color: #00529b;
+  font-size: 1.25rem;
+  border-bottom: 2px solid #00529b;
+  display: inline-block;
+  padding-bottom: 0.25rem;
+}
+/* Listes et paragraphes */
+.top-row .col ul,
+.top-row .col ol {
+  margin: 0.5rem 0 0 1rem;
+  padding: 0;
+}
+.top-row .col ul li,
+.top-row .col ol li {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+.top-row .col .cta {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #0077b6;
+}
+/* Responsive – empilement sous 768px */
+@media (max-width: 767px) {
+  .top-row {
+    flex-direction: column;
+  }
+}
+/* Quand on est en mode “pdf” on cache .actions */
+body.pdf-mode .actions {
+  display: none !important;
+}
+

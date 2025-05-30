@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Grille Tarifaire - CFL Services</title>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body>
+  <header>
+    <img src="assets/img/logo.png.png" alt="CFL Services" class="logo"/>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="tarifs.html" class="active">Grille Tarifaire</a>
+      <a href="conditions.html">Infos & Conditions</a>
+    </nav>
+  </header>
+<!-- === Bloc 3 colonnes en haut de page === -->
+<section class="top-row">
+  <div class="col intro">
+    <h3>NOUVEAUTÉS !</h3>
+    <ul>
+      <li><strong>Grille tarifaire hebdomadaire, comme les pros !</strong><br>
+        Prix au plus juste : nos tarifs fournisseurs à la semaine.</li>
+      <li><strong>Tarifs dégressifs selon le poids !</strong><br>
+        Plus de poids = prix d’achat plus bas.</li>
+      <li><strong>Frais de livraison optimisés !</strong><br>
+        Livraison gratuite dès 100 €.</li>
+      <li><strong>Calcul auto du poids & prix !</strong><br>
+        Remplissez le nombre de poches, cliquez “Mettre à jour les prix”.</li>
+      <li><strong>Retrait ou livraison ?</strong><br>
+        Retrait : mardi & jeudi 12h-18h / Mer-Ven 11h-13h<br>
+        Livraison : mer-ven 8h-13h</li>
+    </ul>
+  </div>
+
+  <div class="col how-to">
+    <h3>Comment ça marche ?</h3>
+    <ol>
+      <li><strong>Choisissez votre mode :</strong> Livraison ou Retrait.</li>
+      <li><strong>Sélectionnez la date</strong> dans le calendrier.</li>
+      <li><strong>Remplissez</strong> le nombre de poches.</li>
+      <li>Cliquez <strong>Mettre à jour les prix</strong>.</li>
+      <li>Vérifiez, puis <strong>Générer PDF de la commande</strong>.</li>
+      <li>Envoyez par Email ou WhatsApp.</li>
+    </ol>
+    <p class="cta">Prêt ? Finalisez votre commande en quelques clics !</p>
+  </div>
+
+  <div class="col pricing-conditions">
+    <h3>Conditions &amp; Remises</h3>
+    <ul>
+      <li><strong>Condition :</strong> min. 10 kg</li>
+      <li><strong>Frais de livraison :</strong>
+        <ul>
+          <li>6 € pour 10–15 kg</li>
+          <li><strong>Offerts</strong> au-delà de 15 kg</li>
+        </ul>
+      </li>
+      <li><strong>Remises par poids :</strong>
+        <ul>
+          <li>10–30 kg : prix grille de base</li>
+          <li>30 à 60 kg : –0,40 €/kg</li>
+          <li>60 à 100 kg : –0,55 €/kg</li>
+          <li>+ 100 kg : –0,80 €/kg</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>
+
+ <!-- Formulaire -->
+    <section class="how-to-use">
+      <form id="form-calcul">
+        <label for="mode"><strong>Mode :</strong></label>
+        <select id="mode">
+          <option value="livraison">Livraison</option>
+          <option value="retrait">Retrait</option>
+        </select>
+        <label for="date-choisie"><strong>Date souhaitée :</strong></label>
+        <input type="date" id="date-choisie"/>
+        <button type="button" id="btn-calcul">Mettre à jour les prix</button>
+      </form>
+</section>
+
+ <!-- Tableau de saisie -->
+    <table id="order-table">
+      <thead>
+        <tr>
+          <th>Produit</th>
+          <th style="width:100px;">Prix €/kg<br>avant remise</th>
+          <th style="width:80px;">Poids/poche</th>
+          <th>Qté (poche)</th>
+          <th style="width:100px;">Poids total<br>(kg)</th>
+          <th style="width:100px;">Prix €/kg<br>après remise</th>
+          <th style="width:120px;">Montant total<br>(€)</th>
+        </tr>
+      </thead>
+      <tbody>
+<tr><td colspan="7" style="text-align:center;color:blue;">PROMO DU MOMENT !</td></tr>
+<tr><td>MAGRET DE CANARD</td><td>15.80 €</td><td>5 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>JAMBON SEC PORC SERRANO</td><td>14,55 €</td><td>5 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>COTE DE BOEUF ORIGINE IRLANDE</td><td>18,75 €</td><td>5,5 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td colspan="7" style="text-align:center;color:blue;">PORC</td></tr>
+<tr><td>SAUTE EPAULE PORC 50/70GR</td><td>8,05 €</td><td>6 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>FILET MIGNON X1 PORC</td><td>10,05 €</td><td>6 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>ECHINE</td><td>9,05 €</td><td>6 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>COEUR LONGE PORC</td><td>8,55 €</td><td>6 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>GRILLADE PORC</td><td>8,80 €</td><td>6 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>ARAIGNEE PORC MHP</td><td>8,65 €</td><td>6 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>PLUMA PORC FRAIS</td><td>11,60 €</td><td>6 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>JOUE PORC</td><td>12,85 €</td><td>6 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td colspan="7" style="text-align:center;color:blue;">BŒUF</td></tr>
+<tr><td>BASSE COTE 4 FACES BOEUF</td><td>14,90 €</td><td>4,5 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>BAV ALOYAU BOEUF</td><td>16,80 €</td><td>2,5 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>COEUR RSTK BOEUF +2.5</td><td>15,60 €</td><td>2,5 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>ENTRECOTE +4 BOEUF</td><td>20,80 €</td><td>4,5 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>FILET +2.5 BOEUF</td><td>25,80 €</td><td>2,5 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>JOUE BOEUF</td><td>12,75 €</td><td>2,5 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>MERLAN BOEUF</td><td>12,75 €</td><td>2,5 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>ONGLET BOEUF</td><td>14,90 €</td><td>2,5 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>ONGLET BOEUF</td><td>14,90 €</td><td>2,5 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>PALERON BOEUF</td><td>13,45 €</td><td>2,5 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>PICANHA BOEUF</td><td>15,35 €</td><td>2 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>POIRE BOEUF</td><td>16,05 €</td><td>2 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>SAUTE COL/BC BOEUF 40/60 G</td><td>12,75 €</td><td>2,5 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td colspan="7" style="text-align:center;color:blue;">BŒUF SIMMENTAL</td></tr>
+<tr><td>BAV ALOYAU SIMMENTAL</td><td>18,75 €</td><td>2,5 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>ENTRECOTE +4 SIMMENTAL</td><td>24,30 €</td><td>5 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>DEMI FAUX FILET SIMMENTAL</td><td>17,40 €</td><td>4 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>PICANHA BOEUF SIMMENTAL</td><td>18,10 €</td><td>1,5 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>COTE DE BOEUF +5 SIMMENTAL</td><td>20,70 €</td><td>5 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td colspan="7" style="text-align:center;color:blue;">POULET</td></tr>
+<tr><td>FILET POULET</td><td>10,50 €</td><td>2,5 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>CUISSE POULET 1/4 AR JAUNE</td><td>6,40 €</td><td>1,5 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>SUPREME DE POULET</td><td>3,70 €</td><td>1,5 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td colspan="7" style="text-align:center;color:blue;">PRODUIT FRANCAIS</td></tr>
+<tr><td>CHORIZO A GRILLER</td><td>13,30 €</td><td>2 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>CHAIR A SAUCISSE</td><td>9,85 €</td><td>2 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>CHIPOLATA</td><td>11,55 €</td><td>2 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>SAUCISSE DE TOULOUSE</td><td>10,65 €</td><td>2 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>MERGUEZ PORC/BOEUF</td><td>11,50 €</td><td>2 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>SAUCISSE BASQUE</td><td>12,20 €</td><td>2 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>SAUCISSE SECHE PERCHE</td><td>15,35 €</td><td>5 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>ECHINE FR</td><td>9,70 €</td><td>2 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>SAUTE PORC FR</td><td>9,35 €</td><td>1,5 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+<tr><td>GRILLADE PORC FR</td><td>13,45 €</td><td>2 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
+ </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="4" style="text-align:right">Total général :</th>
+          <th id="totalWeight">0,00 kg</th>
+          <th></th>
+          <th id="totalAmount">0,00 €</th>
+        </tr>
+      </tfoot>
+    </table>
+<!-- CONTENEUR DESTINÉ AU PDF -->
+<div id="pdf-summary">
+  <!-- Tableau récapitulatif -->
+ <div id="pdf-summary">
+  <h2>Récapitulatif de votre commande</h2>
+  <p><strong>Mode :</strong> <span id="mode-recap"></span></p>
+  <p><strong>Date souhaitée :</strong> <span id="date-recap"></span></p>
+  <table id="summary-table">
+    <thead>
+      <tr>
+        <th>Produit</th>
+        <th>Qté</th>
+        <th>Poids (kg)</th>
+        <th>Sous-total sans remise (€)</th>
+        <th>Sous-total avec remise (€)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- injecté par JS -->
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4" style="text-align:right">Total TTC :</td>
+        <td id="sumWithRemise">0,00 €</td>
+      </tr>
+      <tr>
+        <td colspan="4" style="text-align:right">Total remise :</td>
+        <td id="sumRemise">0,00 €</td>
+      </tr>
+      <tr>
+        <td colspan="4" style="text-align:right">Frais port :</td>
+        <td id="sumPort">0,00 €</td>
+      </tr>
+      <tr>
+        <td colspan="4" style="text-align:right">Total net :</td>
+        <td id="sumNet">0,00 €</td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+         <!-- Boutons d’action -->
+    <div class="actions">
+      <button type="button" id="btn-pdf">📄 Générer PDF de la commande </button>
+      <button type="button" onclick="location.href='mailto:ventes@cfl-services.fr'">
+        📧 Mail
+      </button>
+      <button type="button" onclick="window.open('https://wa.me/33616070555')">
+        💬 WhatsApp
+      </button>
+    </div>
+  </main>
+</tr>
+</tr>
+  <footer>
+    <p>© CFL Services</p>
+  </footer>
+  <!-- date du jour & date récap -->
+  <!-- 1) PapaParse (si besoin) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+  <!-- 2) html2pdf -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+  <!-- 3) Votre calculateur.js -->
+  <script src="assets/js/calculateur.js"></script>
+</body>
+</html>
