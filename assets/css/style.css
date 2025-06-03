@@ -206,7 +206,7 @@ th, td {
 
 /* --- 1a. Image de gauche (desktop) --- */
 .presentation-about .promo-image-left {
-  flex: 0 0 600px;               /* largeur fixe 600px */
+  flex: 0 0 620px;               /* largeur fixe 620px */
 }
 .presentation-about .promo-image-left img {
   width: 100%;
@@ -256,7 +256,7 @@ th, td {
 
 /* --- 1c. Image de droite (desktop) --- */
 .presentation-about .promo-image-right {
-  flex: 0 0 600px;               /* largeur fixe 600px */
+  flex: 0 0 620px;               /* largeur fixe 620px */
 }
 .presentation-about .promo-image-right img {
   width: 100%;
