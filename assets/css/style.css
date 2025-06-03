@@ -275,7 +275,7 @@ th, td {
 /* 2. Version “mobile/tablette” (< 901px) : on empile tout en colonne, centré */
 /* ========================================================================== */
 
-@media (max-width: 900px) {
+@media (max-width: 300px) {
   .presentation-about {
     flex-direction: column;      /* Empile : image gauche → blocs → image droite */
     align-items: center;         /* Centre chaque colonne horizontalement */
@@ -285,22 +285,22 @@ th, td {
   .presentation-about .promo-image-left,
   .presentation-about .promo-image-right {
     flex: 0 0 auto;
-    width: 90%;                  /* 90% de l’écran mobile (ou 100% si vous préférez) */
+    width: 70%;                  /* 70% de l’écran mobile (ou 100% si vous préférez) */
     max-width: 300px;            /* Limite la largeur maximale */
     margin-bottom: 1.5rem;       /* Espace sous l’image */
   }
 
-  /* 2b. Colonne centrale des blocs : on coupe la largeur fixe, on fait 90% */
+  /* 2b. Colonne centrale des blocs : on coupe la largeur fixe, on fait 70% */
   .presentation-about .about-blocks {
     flex: 0 0 auto;
     flex-direction: column;      /* Garde l'empilement vertical des 3 blocs */
-    width: 90%;
+    width: 70%;
     max-width: 300px;
     gap: 1rem;
     margin-bottom: 1.5rem;       /* Espace entre colonne centrale et image droite */
   }
 
-  /* 2c. Chaque bloc texte reste en 100% de son conteneur (donc ~ 90% écran) */
+  /* 2c. Chaque bloc texte reste en 100% de son conteneur (donc ~ 70% écran) */
   .presentation-about .about-section {
     width: 100%;
   }
