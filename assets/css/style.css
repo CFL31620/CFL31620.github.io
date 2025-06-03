@@ -184,13 +184,11 @@ th, td {
     font-size: 12pt;
   }
 }
-
-
 /* Responsive desktop : deux colonnes pour how-to-use */
 @media (min-width: 768px) {
   .how-to-use {
     grid-template-columns: 2fr 1.5fr;
-
+}
 /* ========================================================================== */
 /* 1. Version “desktop” (≥ 901px) : 3 colonnes [Image G. | Blocs empilés | Image D.] */
 /* ========================================================================== */
@@ -318,7 +316,7 @@ th, td {
     gap: 0.75rem;
   }
 }
-}
+
 /* ==== Top row : 3 colonnes côte-à-côte ==== */
 .top-row {
   display: flex;
