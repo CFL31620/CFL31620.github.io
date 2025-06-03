@@ -1,3 +1,7 @@
+/* ========================================================================== */
+/*  Style global et mise en page par défaut                                    */
+/* ========================================================================== */
+
 /* Style global */
 body {
   font-family: Arial, sans-serif;
@@ -157,9 +161,12 @@ th, td {
   cursor: pointer;
 }
 
-/* Impression */
+
+/* ========================================================================== */
+/*  Impression (print)                                                         */
+/* ========================================================================== */
 @media print {
-  /* Masquer en-tête, pied de page, formulaire de calcul et boutons à l’écran et dans le PDF */
+  /* Masquer en-tête, pied de page, formulaire de calcul et boutons */
   header,
   footer,
   #form-calcul,
@@ -183,20 +190,29 @@ th, td {
   body {
     font-size: 12pt;
   }
-}
-/* Responsive desktop : deux colonnes pour how-to-use */
+} /* <<< fermeture du @media print */
+
+
+
+/* ========================================================================== */
+/*  Responsive desktop : deux colonnes pour how-to-use (> 768px)               */
+/* ========================================================================== */
 @media (min-width: 768px) {
   .how-to-use {
     grid-template-columns: 2fr 1.5fr;
-}
+  }
+} /* <<< fermeture du @media (min-width: 768px) */
+
+
+
 /* ========================================================================== */
-/* 1. Version “desktop” (≥ 901px) : 3 colonnes [Image G. | Blocs empilés | Image D.] */
+/*  1. Version “desktop” (≥ 901px) : 3 colonnes [Image G. | Blocs empilés | Image D.] */
 /* ========================================================================== */
 
 .presentation-about {
   display: flex;
-  justify-content: center;      /* centre horizontalement si écran plus large */
-  gap: 1rem;                     /* espace entre chaque colonne */
+  justify-content: center;    /* centre horizontalement si écran large */
+  gap: 1rem;                   /* espace entre chaque colonne */
   margin: 2rem 0;
   padding: 0 1rem;
   box-sizing: border-box;
@@ -204,7 +220,7 @@ th, td {
 
 /* --- 1a. Image de gauche (desktop) --- */
 .presentation-about .promo-image-left {
-  flex: 0 0 600px;               /* largeur fixe 600px */
+  flex: 0 0 600px;             /* colonne fixe à 600px */
 }
 .presentation-about .promo-image-left img {
   width: 100%;
@@ -216,13 +232,13 @@ th, td {
 
 /* --- 1b. Colonne centrale (3 blocs empilés) --- */
 .presentation-about .about-blocks {
-  flex: 0 0 600px;               /* même largeur que l’image côté => 600px */
+  flex: 0 0 600px;             /* même largeur que l’image (600px) */
   display: flex;
-  flex-direction: column;        /* empile verticalement les 3 .about-section */
+  flex-direction: column;      /* empile verticalement les 3 blocs */
   gap: 1rem;
 }
 .presentation-about .about-section {
-  width: 100%;                   /* occupe 600px (sa colonne) */
+  width: 100%;                 /* occupe 600px dans cette colonne */
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 6px;
@@ -254,7 +270,7 @@ th, td {
 
 /* --- 1c. Image de droite (desktop) --- */
 .presentation-about .promo-image-right {
-  flex: 0 0 600px;               /* largeur fixe 600px */
+  flex: 0 0 600px;             /* colonne fixe à 600px */
 }
 .presentation-about .promo-image-right img {
   width: 100%;
@@ -266,56 +282,57 @@ th, td {
 
 
 /* ========================================================================== */
-/* 2. Version “mobile/tablette” (< 901px) : on empile tout, centré             */
+/*  2. Version “mobile/tablette” (< 901px) : on empile tout, centré             */
 /* ========================================================================== */
 @media (max-width: 900px) {
-
   /* 2a. La section principale passe en colonne */
   .presentation-about {
-    flex-direction: column;      /* empile : image gauche → blocs → image droite */
-    align-items: center;         /* centre chaque colonne horizontalement */
+    flex-direction: column;    /* image gauche → blocs → image droite */
+    align-items: center;       /* centre horizontal */
   }
 
-  /* 2b. Images gauche & droite deviennent 90% de la largeur de l’écran */
+  /* 2b. Les images (gauche & droite) passent à 90% de l’écran */
   .presentation-about .promo-image-left,
   .presentation-about .promo-image-right {
     flex: 0 0 auto;
-    width: 90%;                  /* 90 % de l’écran pour réduire davantage */
-    max-width: 600px;            /* on plafonne à 600px pour grande tablette */
-    margin-bottom: 1rem;         /* espacement sous l’image */
+    width: 90%;               /* 90% de la largeur disponible */
+    max-width: 600px;         /* plafond à 600px sur tablette */
+    margin-bottom: 1rem;      /* espace dessous */
   }
 
-  /* 2c. Colonne centrale (les 3 blocs) passe aussi à 90% de l’écran */
+  /* 2c. Colonne centrale (3 blocs) passe aussi à 90% */
   .presentation-about .about-blocks {
     flex: 0 0 auto;
-    flex-direction: column;      /* garde l’empilement vertical des 3 blocs */
+    flex-direction: column;   /* garde l’empilement des 3 blocs */
     width: 90%;
     max-width: 600px;
     gap: 1rem;
-    margin-bottom: 1rem;         /* espacement entre la colonne et l’image droite */
+    margin-bottom: 1rem;      /* espace avant l’image droite */
   }
 
-  /* 2d. Chaque bloc texte fait 100% de sa colonne (donc ~90% écran) */
+  /* 2d. Chaque bloc texte occupe 100% de cette colonne (soit ~90% écran) */
   .presentation-about .about-section {
     width: 100%;
   }
-}
+} /* <<< fermeture du @media (max-width: 900px) */
+
 
 /* ========================================================================== */
-/* 3. Version “ultra-mobile” (< 500px) : réduire à 100%                      */
+/*  3. Version “ultra-mobile” (< 500px) : tout à 100%                          */
 /* ========================================================================== */
 @media (max-width: 500px) {
   .presentation-about .promo-image-left,
   .presentation-about .promo-image-right,
   .presentation-about .about-blocks {
-    width: 100%;               /* plein écran sur très petit smartphone */
+    width: 100%;              /* plein écran sur petit smartphone */
     max-width: none;
     margin-bottom: 1rem;
   }
   .presentation-about .about-blocks {
     gap: 0.75rem;
   }
-}
+} /* <<< fermeture du @media (max-width: 500px) */
+
 
 /* ==== Top row : 3 colonnes côte-à-côte ==== */
 .top-row {
@@ -363,6 +380,7 @@ th, td {
     flex-direction: column;
   }
 }
+
 /* Quand on est en mode “pdf” on cache .actions */
 body.pdf-mode .actions {
   display: none !important;
