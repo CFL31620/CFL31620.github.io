@@ -206,7 +206,7 @@ th, td {
 
 /* --- 1a. Image de gauche --- */
 .presentation-about .promo-image-left {
-  flex: 0 0 650px;               /* Colonne fixe de 650px */
+  flex: 0 0 600px;               /* Colonne fixe de 600px */
 }
 .presentation-about .promo-image-left img {
   width: 100%;
@@ -218,7 +218,7 @@ th, td {
 
 /* --- 1b. Colonne centrale : 3 blocs empilés --- */
 .presentation-about .about-blocks {
-  flex: 0 400px;               /* Même largeur que l’image (400px) */
+  flex: 0 300px;               /* Même largeur que l’image (300px) */
   display: flex;
   flex-direction: column;        /* Empile les .about-section verticalement */
   gap: 1rem;                     /* Espace entre chaque bloc */
@@ -226,7 +226,7 @@ th, td {
 
 /* Chaque bloc texte prend 100% de la largeur de la colonne centrale (400px) */
 .presentation-about .about-section {
-  width: 100%;                   /* 400px */
+  width: 100%;                   /* 300px */
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 6px;
@@ -261,7 +261,7 @@ th, td {
 
 /* --- 1c. Image de droite --- */
 .presentation-about .promo-image-right {
-  flex: 0 0 650px;               /* Même largeur que l’image gauche (650px) */
+  flex: 0 0 600px;               /* Même largeur que l’image gauche (650px) */
 }
 .presentation-about .promo-image-right img {
   width: 100%;
@@ -281,12 +281,12 @@ th, td {
     align-items: center;
   }
 
-  /* 2. Images gauche & droite deviennent 70% de l’écran, max 300px */
+  /* 2. Images gauche & droite deviennent 50% de l’écran, max 400px */
   .presentation-about .promo-image-left,
   .presentation-about .promo-image-right {
     flex: 0 0 auto;
     width: 50%;      /* si 70% est trop grand, vous pouvez mettre 60% ou 50% */
-    max-width: 300px;
+    max-width: 400px;
     margin-bottom: 1rem; /* espacement sous l’image */
   }
 
