@@ -286,7 +286,7 @@ th, td {
 
 /* --- Image de gauche (desktop) --- */
 .presentation-about .promo-image-left {
-  flex: 0 0 300px; /* largeur fixe 300px */
+  flex: 650px; /* largeur fixe 650px */
 }
 .presentation-about .promo-image-left img {
   width: 100%;
@@ -298,13 +298,13 @@ th, td {
 
 /* --- Colonne centrale (3 blocs empilés) --- */
 .presentation-about .about-blocks {
-  flex: 0 0 300px;          /* même largeur que l’image */
+  flex: 650px;          /* même largeur que l’image */
   display: flex;
   flex-direction: column;   /* empile verticalement les 3 blocs */
   gap: 1rem;
 }
 .presentation-about .about-section {
-  width: 100%;              /* 300px */
+  width: 100%;              /* 650px */
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 6px;
@@ -336,7 +336,7 @@ th, td {
 
 /* --- Image de droite (desktop) --- */
 .presentation-about .promo-image-right {
-  flex: 0 0 300px; /* largeur fixe 300px */
+  flex: 650px; /* largeur fixe 650px */
 }
 .presentation-about .promo-image-right img {
   width: 100%;
@@ -380,6 +380,7 @@ th, td {
   .presentation-about .about-section {
     width: 100%;
   }
+}
 /* ==== Top row : 3 colonnes côte-à-côte ==== */
 .top-row {
   display: flex;
