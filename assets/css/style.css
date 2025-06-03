@@ -190,23 +190,23 @@ th, td {
 @media (min-width: 768px) {
   .how-to-use {
     grid-template-columns: 2fr 1.5fr;
-  }
+
 /* ========================================================================== */
 /* 1. Version “desktop” (≥ 901px) : 3 colonnes [Image G. | Blocs empilés | Image D.] */
 /* ========================================================================== */
 
 .presentation-about {
   display: flex;
-  justify-content: center;      /* centre les 3 colonnes si beaucoup d'espace horizontal */
+  justify-content: center;      /* centre horizontalement si écran plus large */
   gap: 1rem;                     /* espace entre chaque colonne */
   margin: 2rem 0;
   padding: 0 1rem;
   box-sizing: border-box;
 }
 
-/* --- 1a. Image de gauche --- */
+/* --- 1a. Image de gauche (desktop) --- */
 .presentation-about .promo-image-left {
-  flex: 0 0 600px;               /* Colonne fixe de 600px */
+  flex: 0 0 600px;               /* largeur fixe 600px */
 }
 .presentation-about .promo-image-left img {
   width: 100%;
@@ -216,25 +216,22 @@ th, td {
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-/* --- 1b. Colonne centrale : 3 blocs empilés --- */
+/* --- 1b. Colonne centrale (3 blocs empilés) --- */
 .presentation-about .about-blocks {
-  flex: 0 300px;               /* Même largeur que l’image (300px) */
+  flex: 0 0 300px;               /* même largeur que l’image */
   display: flex;
-  flex-direction: column;        /* Empile les .about-section verticalement */
-  gap: 1rem;                     /* Espace entre chaque bloc */
+  flex-direction: column;        /* empile verticalement les 3 .about-section */
+  gap: 1rem;
 }
-
-/* Chaque bloc texte prend 100% de la largeur de la colonne centrale (400px) */
 .presentation-about .about-section {
-  width: 100%;                   /* 300px */
+  width: 100%;                   /* occupe 300px (sa colonne) */
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 6px;
   padding: 1rem;
   box-sizing: border-box;
 }
-
-/* Style des titres dans chaque bloc */
+/* Titres et listes */
 .presentation-about .about-section h2 {
   color: #00529b;
   font-size: 1.5rem;
@@ -243,8 +240,6 @@ th, td {
   display: inline-block;
   padding-bottom: 0.25rem;
 }
-
-/* Listes à l’intérieur des blocs */
 .presentation-about .about-section ul {
   list-style: disc inside;
   margin: 0.5rem 0 0 0;
@@ -259,9 +254,9 @@ th, td {
   line-height: 1.4;
 }
 
-/* --- 1c. Image de droite --- */
+/* --- 1c. Image de droite (desktop) --- */
 .presentation-about .promo-image-right {
-  flex: 0 0 600px;               /* Même largeur que l’image gauche (650px) */
+  flex: 0 0 600px;               /* largeur fixe 600px */
 }
 .presentation-about .promo-image-right img {
   width: 100%;
@@ -270,37 +265,39 @@ th, td {
   border-radius: 6px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
-/* ========================================================================== */
-/*  Version “mobile/tablette” (< 901px) : on empile tout, centré              */
-/* ========================================================================== */
-@media (max-width: 600px) {
 
-  /* 1. Empiler la section en colonne */
+
+/* ========================================================================== */
+/* 2. Version “mobile/tablette” (< 901px) : on empile tout, centré             */
+/* ========================================================================== */
+@media (max-width: 900px) {
+
+  /* 2a. La section principale passe en colonne */
   .presentation-about {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column;      /* empile : image gauche → blocs → image droite */
+    align-items: center;         /* centre chaque colonne horizontalement */
   }
 
-  /* 2. Images gauche & droite deviennent 50% de l’écran, max 400px */
+  /* 2b. Images gauche & droite deviennent 70% de la largeur de l’écran */
   .presentation-about .promo-image-left,
   .presentation-about .promo-image-right {
     flex: 0 0 auto;
-    width: 50%;      /* si 70% est trop grand, vous pouvez mettre 60% ou 50% */
-    max-width: 400px;
-    margin-bottom: 1rem; /* espacement sous l’image */
+    width: 70%;                  /* 70 % de l’écran (ajustez à 60 % ou 100 % si souhaité) */
+    max-width: 300px;            /* on plafonne à 300px pour ne pas être trop grand */
+    margin-bottom: 1rem;         /* espacement sous l’image */
   }
 
-  /* 3. Colonne centrale (les 3 blocs) = 70% de l’écran, max 300px */
+  /* 2c. Colonne centrale (les 3 blocs) passe aussi à 70% de l’écran */
   .presentation-about .about-blocks {
     flex: 0 0 auto;
-    flex-direction: column;
-    width: 50%;
+    flex-direction: column;      /* garde l’empilement vertical des 3 blocs */
+    width: 70%;
     max-width: 300px;
     gap: 1rem;
-    margin-bottom: 1rem; /* espacement entre les blocs et l’image droite */
+    margin-bottom: 1rem;         /* espacement entre la colonne et l’image droite */
   }
 
-  /* 4. Chaque bloc texte occupe 100% de sa colonne (donc ~70% écran) */
+  /* 2d. Chaque bloc texte fait 100% de sa colonne (donc ~70% écran) */
   .presentation-about .about-section {
     width: 100%;
   }
@@ -354,46 +351,4 @@ th, td {
 /* Quand on est en mode “pdf” on cache .actions */
 body.pdf-mode .actions {
   display: none !important;
-}
-/* -------------------------------------------------------------------
-   Responsive mobile pour la section Présentation
-------------------------------------------------------------------- */
-@media (max-width: 768px) {
-  .presentation-about {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    margin: 2rem 0;
-  }
-  /* L’image prend toute la largeur */
-  .presentation-about .promo-image {
-    width: 100%;
-    flex: none;
-  }
-  .presentation-about .promo-image img {
-    width: 100%;
-    height: auto;
-  }
-  /* Texte : empilage des .about-section */
-  .presentation-about .about-cfl {
-    width: 100%;
-    display: block;
-  }
-  .presentation-about .about-section {
-    margin-bottom: 1.5rem;
-  }
-}
-@media (max-width: 600px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  nav {
-    margin-top: 0.5rem;
-  }
-  nav a {
-    display: block;
-    margin: 0.25rem 0;
-  }
 }
