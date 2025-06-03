@@ -218,15 +218,15 @@ th, td {
 
 /* --- 1b. Colonne centrale : 3 blocs empilés --- */
 .presentation-about .about-blocks {
-  flex: 0 0 300px;               /* Même largeur que l’image (300px) */
+  flex: 0 400px;               /* Même largeur que l’image (400px) */
   display: flex;
   flex-direction: column;        /* Empile les .about-section verticalement */
   gap: 1rem;                     /* Espace entre chaque bloc */
 }
 
-/* Chaque bloc texte prend 100% de la largeur de la colonne centrale (300px) */
+/* Chaque bloc texte prend 100% de la largeur de la colonne centrale (400px) */
 .presentation-about .about-section {
-  width: 100%;                   /* 300px */
+  width: 100%;                   /* 400px */
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 6px;
@@ -270,86 +270,10 @@ th, td {
   border-radius: 6px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
-
-/* ========================================================================== */
-/*  Version “desktop” (≥ 901px) : 3 colonnes [Image G. | Blocs empilés | Image D.] */
-/* ========================================================================== */
-
-.presentation-about {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin: 2rem 0;
-  padding: 0 1rem;
-  box-sizing: border-box;
-}
-
-/* --- Image de gauche (desktop) --- */
-.presentation-about .promo-image-left {
-  flex: 650px; /* largeur fixe 650px */
-}
-.presentation-about .promo-image-left img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-/* --- Colonne centrale (3 blocs empilés) --- */
-.presentation-about .about-blocks {
-  flex: 650px;          /* même largeur que l’image */
-  display: flex;
-  flex-direction: column;   /* empile verticalement les 3 blocs */
-  gap: 1rem;
-}
-.presentation-about .about-section {
-  width: 100%;              /* 650px */
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  padding: 1rem;
-  box-sizing: border-box;
-}
-/* Titres et listes inchangés */
-.presentation-about .about-section h2 {
-  color: #00529b;
-  font-size: 1.5rem;
-  margin: 0 0 0.75rem;
-  border-bottom: 2px solid #00529b;
-  display: inline-block;
-  padding-bottom: 0.25rem;
-}
-.presentation-about .about-section ul {
-  list-style: disc inside;
-  margin: 0.5rem 0 0 0;
-  padding: 0;
-}
-.presentation-about .about-section ul ul {
-  list-style: circle inside;
-  margin-left: 1rem;
-}
-.presentation-about .about-section li {
-  margin-bottom: 0.5rem;
-  line-height: 1.4;
-}
-
-/* --- Image de droite (desktop) --- */
-.presentation-about .promo-image-right {
-  flex: 650px; /* largeur fixe 650px */
-}
-.presentation-about .promo-image-right img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
 /* ========================================================================== */
 /*  Version “mobile/tablette” (< 901px) : on empile tout, centré              */
 /* ========================================================================== */
-@media (max-width: 900px) {
+@media (max-width: 600px) {
 
   /* 1. Empiler la section en colonne */
   .presentation-about {
@@ -361,7 +285,7 @@ th, td {
   .presentation-about .promo-image-left,
   .presentation-about .promo-image-right {
     flex: 0 0 auto;
-    width: 70%;      /* si 70% est trop grand, vous pouvez mettre 60% ou 50% */
+    width: 50%;      /* si 70% est trop grand, vous pouvez mettre 60% ou 50% */
     max-width: 300px;
     margin-bottom: 1rem; /* espacement sous l’image */
   }
@@ -370,7 +294,7 @@ th, td {
   .presentation-about .about-blocks {
     flex: 0 0 auto;
     flex-direction: column;
-    width: 70%;
+    width: 50%;
     max-width: 300px;
     gap: 1rem;
     margin-bottom: 1rem; /* espacement entre les blocs et l’image droite */
