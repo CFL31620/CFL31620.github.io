@@ -206,7 +206,7 @@ th, td {
 
 /* --- 1a. Image de gauche (desktop) --- */
 .presentation-about .promo-image-left {
-  flex:600px;               /* largeur fixe 600px */
+  flex: 0 0 600px;               /* largeur fixe 600px */
 }
 .presentation-about .promo-image-left img {
   width: 100%;
@@ -218,13 +218,13 @@ th, td {
 
 /* --- 1b. Colonne centrale (3 blocs empilés) --- */
 .presentation-about .about-blocks {
-  flex: 0 0 300px;               /* même largeur que l’image */
+  flex: 0 0 600px;               /* même largeur que l’image côté => 600px */
   display: flex;
   flex-direction: column;        /* empile verticalement les 3 .about-section */
   gap: 1rem;
 }
 .presentation-about .about-section {
-  width: 100%;                   /* occupe 300px (sa colonne) */
+  width: 100%;                   /* occupe 600px (sa colonne) */
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 6px;
@@ -256,7 +256,7 @@ th, td {
 
 /* --- 1c. Image de droite (desktop) --- */
 .presentation-about .promo-image-right {
-  flex:600px;               /* largeur fixe 600px */
+  flex: 0 0 600px;               /* largeur fixe 600px */
 }
 .presentation-about .promo-image-right img {
   width: 100%;
@@ -278,29 +278,46 @@ th, td {
     align-items: center;         /* centre chaque colonne horizontalement */
   }
 
-  /* 2b. Images gauche & droite deviennent 70% de la largeur de l’écran */
+  /* 2b. Images gauche & droite deviennent 90% de la largeur de l’écran */
   .presentation-about .promo-image-left,
   .presentation-about .promo-image-right {
     flex: 0 0 auto;
-    width: 70%;                  /* 70 % de l’écran (ajustez à 60 % ou 100 % si souhaité) */
-    max-width: 300px;            /* on plafonne à 300px pour ne pas être trop grand */
+    width: 90%;                  /* 90 % de l’écran pour réduire davantage */
+    max-width: 600px;            /* on plafonne à 600px pour grande tablette */
     margin-bottom: 1rem;         /* espacement sous l’image */
   }
 
-  /* 2c. Colonne centrale (les 3 blocs) passe aussi à 70% de l’écran */
+  /* 2c. Colonne centrale (les 3 blocs) passe aussi à 90% de l’écran */
   .presentation-about .about-blocks {
     flex: 0 0 auto;
     flex-direction: column;      /* garde l’empilement vertical des 3 blocs */
-    width: 70%;
-    max-width: 300px;
+    width: 90%;
+    max-width: 600px;
     gap: 1rem;
     margin-bottom: 1rem;         /* espacement entre la colonne et l’image droite */
   }
 
-  /* 2d. Chaque bloc texte fait 100% de sa colonne (donc ~70% écran) */
+  /* 2d. Chaque bloc texte fait 100% de sa colonne (donc ~90% écran) */
   .presentation-about .about-section {
     width: 100%;
   }
+}
+
+/* ========================================================================== */
+/* 3. Version “ultra-mobile” (< 500px) : réduire à 100%                      */
+/* ========================================================================== */
+@media (max-width: 500px) {
+  .presentation-about .promo-image-left,
+  .presentation-about .promo-image-right,
+  .presentation-about .about-blocks {
+    width: 100%;               /* plein écran sur très petit smartphone */
+    max-width: none;
+    margin-bottom: 1rem;
+  }
+  .presentation-about .about-blocks {
+    gap: 0.75rem;
+  }
+}
 }
 /* ==== Top row : 3 colonnes côte-à-côte ==== */
 .top-row {
