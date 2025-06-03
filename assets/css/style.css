@@ -385,3 +385,51 @@ th, td {
 body.pdf-mode .actions {
   display: none !important;
 }
+/* ========== FOOTER ========== */
+footer {
+  background-color: #f8f8f8; /* ou la couleur souhaitée */
+  font-size: 0.875rem;       /* un peu plus petit que le reste du site */
+  line-height: 1.3;          /* pour garder une bonne lisibilité malgré la police réduite */
+  padding: 0.5rem 1rem;      /* réduit le padding global du footer (haut/bas et gauche/droite) */
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;          /* pour basculer en colonnes sur mobile */
+}
+
+.footer-section {
+  flex: 1 1 200px;          /* chaque bloc prend au moins 200px, et peut se réduire */
+  margin: 0.25rem;          /* espace très réduit entre les sections */
+}
+
+.footer-section h4 {
+  font-size: 1rem;          /* titre légèrement plus petit */
+  margin-bottom: 0.25rem;   /* moins d’espace sous le titre */
+}
+
+.footer-section p,
+.footer-section li {
+  margin: 0.15rem 0;        /* très peu d’espace entre les lignes */
+}
+
+.footer-section ul {
+  padding-left: 1rem;       /* indentation minimale pour les listes */
+  margin: 0;
+}
+
+.footer-container .footer-section ul li {
+  list-style-type: disc;    /* ou circle, selon votre charte */
+  margin-left: 1rem;        /* pour décaler légèrement la puce */
+}
+
+/* Bas de footer (copyright) */
+.footer-bottom {
+  text-align: center;
+  font-size: 0.75rem;       /* encore plus petit pour le copyright */
+  padding: 0.25rem 0;       /* très peu de padding haut/bas */
+  margin-top: 0.5rem;       /* légère séparation du bloc principal */
+  border-top: 1px solid #ddd; /* une fine ligne pour distinguer */
+  color: #666;              /* gris foncé pour que ce soit discret */
+}
+
