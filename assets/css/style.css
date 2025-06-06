@@ -433,3 +433,81 @@ footer {
   color: #666;              /* gris foncé pour que ce soit discret */
 }
 
+/* Exemple à mettre dans assets/styles.css */
+main.offres-actuelles {
+  padding: 2rem;
+  background-color: #f9f9f9;
+}
+.promo-produit {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+.promo-produit img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 0.5rem;
+}
+.alerte-offre {
+  text-align: center;
+  color: #0056b3;     /* un bleu plus doux / accessible */
+  padding: 0.5rem 0;
+  font-weight: bold;   /* pour attirer l’attention sans mettre tout en majuscules */
+  background-color: #f0f8ff; /* léger fond pour démarquer la ligne */
+}
+/* assets/css/styles.css */
+
+/* === Styles pour la page “Offre du moment” === */
+.offres-images {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.offres-images h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.offres-images p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.offres-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.offre-item {
+  flex: 1 1 300px;
+  max-width: 500px;
+  text-align: center;
+}
+
+.offre-item img {
+  width: 100%;
+  height: auto;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.offre-item img:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease-in-out;
+}
+
+@media (max-width: 640px) {
+  .offres-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .offre-item {
+    max-width: 100%;
+  }
+}
+
+

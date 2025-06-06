@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Offre du moment – CFL Services</title>
+  <!-- On suppose que votre CSS est dans assets/css/styles.css -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <!-- === HEADER / Navigation === -->
+  <header>
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/img/logo.png" alt="Logo CFL Services">
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="tarifs.html">Grille Tarifaire</a></li>
+        <li><a href="conditions.html">Infos &amp; Conditions</a></li>
+        <li><a href="offre.html" class="active">Offre du moment</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- === CONTENU PRINCIPAL === -->
+  <main class="offres-images">
+    <h1>Offre du moment</h1>
+    <p>Découvrez nos promotions de la semaine&nbsp;! (Cliquez sur l’image pour agrandir)</p>
+
+    <div class="offres-container">
+      <!-- Visuel n°1 -->
+      <figure class="offre-item">
+        <a href="assets/img/offre1.jpg" target="_blank" rel="noopener">
+          <img src="assets/img/offre1.jpg" alt="Offre du moment – visuel 1">
+        </a>
+        <figcaption>Promo N°1</figcaption>
+      </figure>
+
+      <!-- Visuel n°2 -->
+      <figure class="offre-item">
+        <a href="assets/img/offre2.jpg" target="_blank" rel="noopener">
+          <img src="assets/img/offre2.jpg" alt="Offre du moment – visuel 2">
+        </a>
+        <figcaption>Promo N°2</figcaption>
+      </figure>
+    </div>
+  </main>
+
+  <!-- === FOOTER === -->
+  <footer>
+    <div class="contact">
+      <h4>Contactez-nous</h4>
+      <p>
+        CFL Services – SAS<br>
+        31 Avenue de Saint Guillan, 31620 Castelnau-d’Estrétefonds<br>
+        Tél. : 06 16 07 05 55<br>
+        Email : ventes@cfl-services.fr
+      </p>
+      <h4>Liens utiles</h4>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="tarifs.html">Grille Tarifaire</a></li>
+        <li><a href="conditions.html">Conditions Générales de Vente</a></li>
+        <li><a href="offre.html">Offre du moment</a></li>
+      </ul>
+      <p>© 2025 CFL Services. Tous droits réservés.</p>
+    </div>
+  </footer>
+</body>
+</html>
