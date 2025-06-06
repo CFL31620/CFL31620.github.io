@@ -431,58 +431,61 @@ footer {
   margin-top: 0.5rem;       /* légère séparation du bloc principal */
   border-top: 1px solid #ddd; /* une fine ligne pour distinguer */
   color: #666;              /* gris foncé pour que ce soit discret */
+
+/* haut de page */
+header {
+  display: flex;                  /* flex pour aligner logo et menu sur une même ligne */
+  justify-content: space-between; /* logo à gauche, menu à droite */
+  align-items: center;            /* centre verticalement logo et menu */
+  background-color: #333;
+  padding: 0.5rem 1rem;           /* espace autour du contenu */
 }
 
-/* === Styles pour la page “Offre du moment” === */
-.offres-images {
-  padding: 2rem 1rem;
-  text-align: center;
+/* Conteneur du logo */
+header .logo {
+  flex-shrink: 0;                 /* empêche le logo de rétrécir */
 }
 
-.offres-images h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-.offres-images p {
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-  color: #555;
+header .logo img {
+  height: 50px;                   /* ajustez la hauteur du logo selon besoin */
+  width: auto;                    /* garde les proportions naturelles */
+  display: block;                 /* supprime les espaces blancs sous l’image */
 }
 
-.offres-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
+/* Menu horizontal */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;       /* met les <li> sur une ligne */
+  flex-wrap: wrap;     /* autorise le retour à la ligne si c’est trop étroit */
+  gap: 1rem;           /* espace entre chaque lien */
+  justify-content: flex-end; /* aligne les liens à droite */
+  align-items: center; /* centre verticalement les liens */
 }
 
-.offre-item {
-  flex: 1 1 300px;
-  max-width: 500px;
-  text-align: center;
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem;     /* zone cliquable plus grande */
 }
 
-.offre-item img {
-  width: 100%;
-  height: auto;
-  border: 2px solid #ddd;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+nav a:hover {
+  text-decoration: underline;
 }
 
-.offre-item img:hover {
-  transform: scale(1.02);
-  transition: transform 0.2s ease-in-out;
-}
-
-@media (max-width: 640px) {
-  .offres-container {
-    flex-direction: column;
-    gap: 1rem;
+/* Responsive pour écrans très étroits */
+@media (max-width: 480px) {
+  header {
+    flex-direction: column; /* on empile logo et menu en colonne */
+    row-gap: 0.5rem;        /* espace vertical entre logo et menu */
   }
-  .offre-item {
-    max-width: 100%;
+  nav ul {
+    justify-content: center; /* centre les liens sur petit écran */
+  }
+  header .logo img {
+    height: 40px;            /* réduit encore le logo si nécessaire */
   }
 }
-
-
