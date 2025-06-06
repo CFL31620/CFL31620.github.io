@@ -2,490 +2,243 @@
 /*  Style global et mise en page par défaut                                    */
 /* ========================================================================== */
 
-/* Style global */
+/* === Style global === */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  background: #fafafa;
+  color: #333;
 }
 
-/* En-tête */
+/* ========================================================================== */
+/*  EN-TÊTE (HEADER)                                                            */
+/* ========================================================================== */
 header {
-  background: #333;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-}
-
-/* Logo */
-.logo {
-  height: 50px;
-  margin-right: 1rem;
-}
-
-/* Menu de navigation */
-nav a {
-  color: #fff;
-  margin-right: 1rem;
-  text-decoration: none;
-}
-nav a.active {
-  text-decoration: underline;
-}
-
-/* Contenu principal */
-main {
-  padding: 1rem;
-}
-
-/* Pied de page */
-footer {
-  background: #f0f0f0;
-  text-align: center;
-  padding: 0.5rem;
-}
-
-/* Tableaux */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 1rem;
-}
-th, td {
-  border: 1px solid #ccc;
-  padding: 0.5rem;
-  text-align: center;
-}
-
-/* Spécifique #order-table */
-#order-table th:first-child,
-#order-table td:first-child {
-  width: 150px;
-  text-align: left;
-  padding-left: 8px;
-}
-#order-table th:nth-child(4),
-#order-table td:nth-child(4) {
-  width: 80px;
-  text-align: center;
-  padding: 0 4px;
-}
-#order-table th,
-#order-table td {
-  text-align: center !important;
-}
-
-/* Ligne promo */
-.promo-title {
-  color: blue;
-  text-align: center;
-  font-weight: bold;
-}
-
-/* Formulaire & instructions */
-.how-to-use {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-.usage-instructions,
-.pricing-conditions {
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  padding: 1.5rem;
-}
-.usage-instructions h3,
-.pricing-conditions h3 {
-  color: #00529b;
-  margin-top: 0;
-}
-.usage-instructions ol {
-  margin: 0.5rem 0 1rem 1rem;
-}
-.usage-instructions .cta {
-  margin-top: 1rem;
-  font-weight: bold;
-  color: #0077b6;
-}
-
-/* Conditions & Remises */
-.pricing-conditions {
-  background: #f0f8ff;
-  border-color: #b3d4fc;
-}
-.pricing-conditions .conditions-list {
-  list-style: none;
-  margin: 0.75rem 0 0 0;
-  padding: 0;
-}
-.pricing-conditions .conditions-list li {
-  margin-bottom: 0.5rem;
-}
-.pricing-conditions .conditions-list ul {
-  list-style: disc inside;
-  margin-left: 1rem;
-}
-
-/* Présentation image, centré et responsive */
-.presentation {
-  text-align: center;
-  margin: 2rem 0;
-}
-.presentation img {
-  display: block;
-  max-width: 100%;
-  width: 500px;
-  height: auto;
-  margin: 0 auto 1rem;
-}
-
-/* Title grille tarifaire centré et bleu */
-#tarif-title {
-  text-align: center;
-  color: #00529b;
-  font-size: 2.25rem;
-  margin: 1.5rem 0;
-  font-weight: 600;
-}
-
-/* Actions PDF/Mail/WhatsApp */
-.actions {
-  margin-top: 1rem;
-}
-.actions button {
-  padding: 0.5rem 1rem;
-  margin-right: 0.5rem;
-  cursor: pointer;
-}
-
-
-/* ========================================================================== */
-/*  Impression (print)                                                         */
-/* ========================================================================== */
-@media print {
-  /* Masquer en-tête, pied de page, formulaire de calcul et boutons */
-  header,
-  footer,
-  #form-calcul,
-  .actions,
-  button {
-    display: none !important;
-  }
-
-  /* Ajuster le rendu du tableau */
-  table {
-    width: 100%;
-    border: 1px solid #000;
-  }
-  th,
-  td {
-    border: 1px solid #000;
-    padding: 0.2em;
-  }
-
-  /* Taille du texte pour impression */
-  body {
-    font-size: 12pt;
-  }
-} /* <<< fermeture du @media print */
-
-
-
-/* ========================================================================== */
-/*  Responsive desktop : deux colonnes pour how-to-use (> 768px)               */
-/* ========================================================================== */
-@media (min-width: 768px) {
-  .how-to-use {
-    grid-template-columns: 2fr 1.5fr;
-  }
-} /* <<< fermeture du @media (min-width: 768px) */
-
-
-
-/* ========================================================================== */
-/*  1. Version “desktop” (≥ 901px) : 3 colonnes [Image G. | Blocs empilés | Image D.] */
-/* ========================================================================== */
-
-.presentation-about {
-  display: flex;
-  justify-content: center;    /* centre horizontalement si écran large */
-  gap: 1rem;                   /* espace entre chaque colonne */
-  margin: 2rem 0;
-  padding: 0 1rem;
-  box-sizing: border-box;
-}
-
-/* --- 1a. Image de gauche (desktop) --- */
-.presentation-about .promo-image-left {
-  flex: 0 0 600px;             /* colonne fixe à 600px */
-}
-.presentation-about .promo-image-left img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-/* --- 1b. Colonne centrale (3 blocs empilés) --- */
-.presentation-about .about-blocks {
-  flex: 0 0 600px;             /* même largeur que l’image (600px) */
-  display: flex;
-  flex-direction: column;      /* empile verticalement les 3 blocs */
-  gap: 1rem;
-}
-.presentation-about .about-section {
-  width: 100%;                 /* occupe 600px dans cette colonne */
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  padding: 1rem;
-  box-sizing: border-box;
-}
-/* Titres et listes */
-.presentation-about .about-section h2 {
-  color: #00529b;
-  font-size: 1.5rem;
-  margin: 0 0 0.75rem;
-  border-bottom: 2px solid #00529b;
-  display: inline-block;
-  padding-bottom: 0.25rem;
-}
-.presentation-about .about-section ul {
-  list-style: disc inside;
-  margin: 0.5rem 0 0 0;
-  padding: 0;
-}
-.presentation-about .about-section ul ul {
-  list-style: circle inside;
-  margin-left: 1rem;
-}
-.presentation-about .about-section li {
-  margin-bottom: 0.5rem;
-  line-height: 1.4;
-}
-
-/* --- 1c. Image de droite (desktop) --- */
-.presentation-about .promo-image-right {
-  flex: 0 0 600px;             /* colonne fixe à 600px */
-}
-.presentation-about .promo-image-right img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-
-/* ========================================================================== */
-/*  2. Version “mobile/tablette” (< 901px) : on empile tout, centré             */
-/* ========================================================================== */
-@media (max-width: 900px) {
-  /* 2a. La section principale passe en colonne */
-  .presentation-about {
-    flex-direction: column;    /* image gauche → blocs → image droite */
-    align-items: center;       /* centre horizontal */
-  }
-
-  /* 2b. Les images (gauche & droite) passent à 90% de l’écran */
-  .presentation-about .promo-image-left,
-  .presentation-about .promo-image-right {
-    flex: 0 0 auto;
-    width: 90%;               /* 90% de la largeur disponible */
-    max-width: 600px;         /* plafond à 600px sur tablette */
-    margin-bottom: 1rem;      /* espace dessous */
-  }
-
-  /* 2c. Colonne centrale (3 blocs) passe aussi à 90% */
-  .presentation-about .about-blocks {
-    flex: 0 0 auto;
-    flex-direction: column;   /* garde l’empilement des 3 blocs */
-    width: 90%;
-    max-width: 600px;
-    gap: 1rem;
-    margin-bottom: 1rem;      /* espace avant l’image droite */
-  }
-
-  /* 2d. Chaque bloc texte occupe 100% de cette colonne (soit ~90% écran) */
-  .presentation-about .about-section {
-    width: 100%;
-  }
-} /* <<< fermeture du @media (max-width: 900px) */
-
-
-/* ========================================================================== */
-/*  3. Version “ultra-mobile” (< 500px) : tout à 100%                          */
-/* ========================================================================== */
-@media (max-width: 500px) {
-  .presentation-about .promo-image-left,
-  .presentation-about .promo-image-right,
-  .presentation-about .about-blocks {
-    width: 100%;              /* plein écran sur petit smartphone */
-    max-width: none;
-    margin-bottom: 1rem;
-  }
-  .presentation-about .about-blocks {
-    gap: 0.75rem;
-  }
-} /* <<< fermeture du @media (max-width: 500px) */
-
-
-/* ==== Top row : 3 colonnes côte-à-côte ==== */
-.top-row {
-  display: flex;
-  gap: 1.5rem;
-  margin: 2rem 0;
-  align-items: flex-start;
-}
-.top-row .col {
-  flex: 1;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  padding: 1rem;
-  box-sizing: border-box;
-}
-/* Titres soulignés en bleu */
-.top-row .col h3 {
-  margin-top: 0;
-  color: #00529b;
-  font-size: 1.25rem;
-  border-bottom: 2px solid #00529b;
-  display: inline-block;
-  padding-bottom: 0.25rem;
-}
-/* Listes et paragraphes */
-.top-row .col ul,
-.top-row .col ol {
-  margin: 0.5rem 0 0 1rem;
-  padding: 0;
-}
-.top-row .col ul li,
-.top-row .col ol li {
-  margin-bottom: 0.5rem;
-  line-height: 1.4;
-}
-.top-row .col .cta {
-  margin-top: 1rem;
-  font-weight: bold;
-  color: #0077b6;
-}
-/* Responsive – empilement sous 768px */
-@media (max-width: 767px) {
-  .top-row {
-    flex-direction: column;
-  }
-}
-
-/* Quand on est en mode “pdf” on cache .actions */
-body.pdf-mode .actions {
-  display: none !important;
-}
-/* ========== FOOTER ========== */
-footer {
-  background-color: #f8f8f8; /* ou la couleur souhaitée */
-  font-size: 0.875rem;       /* un peu plus petit que le reste du site */
-  line-height: 1.3;          /* pour garder une bonne lisibilité malgré la police réduite */
-  padding: 0.5rem 1rem;      /* réduit le padding global du footer (haut/bas et gauche/droite) */
-}
-
-.footer-container {
-  display: flex;
-  flex-wrap: wrap;          /* pour basculer en colonnes sur mobile */
-}
-
-.footer-section {
-  flex: 1 1 200px;          /* chaque bloc prend au moins 200px, et peut se réduire */
-  margin: 0.25rem;          /* espace très réduit entre les sections */
-}
-
-.footer-section h4 {
-  font-size: 1rem;          /* titre légèrement plus petit */
-  margin-bottom: 0.25rem;   /* moins d’espace sous le titre */
-}
-
-.footer-section p,
-.footer-section li {
-  margin: 0.15rem 0;        /* très peu d’espace entre les lignes */
-}
-
-.footer-section ul {
-  padding-left: 1rem;       /* indentation minimale pour les listes */
-  margin: 0;
-}
-
-.footer-container .footer-section ul li {
-  list-style-type: disc;    /* ou circle, selon votre charte */
-  margin-left: 1rem;        /* pour décaler légèrement la puce */
-}
-
-/* Bas de footer (copyright) */
-.footer-bottom {
-  text-align: center;
-  font-size: 0.75rem;       /* encore plus petit pour le copyright */
-  padding: 0.25rem 0;       /* très peu de padding haut/bas */
-  margin-top: 0.5rem;       /* légère séparation du bloc principal */
-  border-top: 1px solid #ddd; /* une fine ligne pour distinguer */
-  color: #666;              /* gris foncé pour que ce soit discret */
-
-/* haut de page */
-header {
-  display: flex;                  /* flex pour aligner logo et menu sur une même ligne */
+  display: flex;                  
   justify-content: space-between; /* logo à gauche, menu à droite */
-  align-items: center;            /* centre verticalement logo et menu */
-  background-color: #333;
+  align-items: center;            
+  background-color: #333;         /* fond gris foncé */
   padding: 0.5rem 1rem;           /* espace autour du contenu */
 }
 
-/* Conteneur du logo */
+/* === Logo CFL === */
 header .logo {
   flex-shrink: 0;                 /* empêche le logo de rétrécir */
 }
 
 header .logo img {
-  height: 50px;                   /* ajustez la hauteur du logo selon besoin */
-  width: auto;                    /* garde les proportions naturelles */
-  display: block;                 /* supprime les espaces blancs sous l’image */
+  height: 50px;                   /* hauteur du logo ajustable */
+  width: auto;                    
+  display: block;                 
 }
 
-/* Menu horizontal */
+/* === Menu vertical (à droite du logo) === */
 nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
 
-  display: flex;       /* met les <li> sur une ligne */
-  flex-wrap: wrap;     /* autorise le retour à la ligne si c’est trop étroit */
-  gap: 1rem;           /* espace entre chaque lien */
-  justify-content: flex-end; /* aligne les liens à droite */
-  align-items: center; /* centre verticalement les liens */
+  display: flex;                  
+  flex-direction: column;         /* menu en colonne */
+  gap: 0.5rem;                    /* espace entre chaque lien */
+  align-items: flex-end;          /* aligne les liens au bord droit */
+}
+
+nav ul li {
+  margin: 0;                      
 }
 
 nav a {
-  color: white;
+  color: #fff;                    /* texte blanc */
   text-decoration: none;
   font-weight: 500;
-  padding: 0.5rem;     /* zone cliquable plus grande */
+  padding: 0.25rem 0.5rem;        /* zone cliquable */
+  display: inline-block;          
 }
 
-nav a:hover {
-  text-decoration: underline;
+nav a:hover,
+nav a.active {
+  text-decoration: underline;     
+  background-color: #444;         /* léger fond au survol/actif */
+  border-radius: 4px;
 }
 
-/* Responsive pour écrans très étroits */
-@media (max-width: 480px) {
+/* ========================================================================== */
+/*  TITRE PAGE OFFRE                                                            */
+/* ========================================================================== */
+.offre-header {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.offre-header h1 {
+  font-size: 2rem;
+  color: #00529b;                  /* bleu CFL */
+  margin: 0;
+  font-weight: 600;
+}
+
+/* ========================================================================== */
+/*  CONTENU PRINCIPAL – OFFRE DU MOMENT                                         */
+/* ========================================================================== */
+main.offres-images {
+  padding: 0 1rem 2rem 1rem;
+}
+
+/* Texte d’introduction sous le titre */
+main.offres-images p {
+  text-align: center;
+  font-size: 1rem;
+  margin: 0.5rem 0 1.5rem 0;
+  color: #555;
+}
+
+/* Conteneur des visuels */
+.offres-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Chaque figure (visuel) */
+.offre-item {
+  flex: 0 1 300px;               /* minimum 300px, puis s’ajuste */
+  max-width: 350px;              /* ne dépasse pas 350px de large */
+  text-align: center;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.offre-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  display: block;
+}
+
+.offre-item figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* Boutons d’action sous les visuels (Mail & WhatsApp) */
+.actions {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.actions button {
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #00529b;     /* bleu CFL */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.actions button:hover {
+  background-color: #004080;
+}
+
+/* ========================================================================== */
+/*  FOOTER (footer principal)                                                   */
+/* ========================================================================== */
+footer {
+  background-color: #f0f0f0;      /* fond très clair pour le footer principal */
+  color: #333;
+  padding: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.footer-section {
+  flex: 1 1 200px;              
+}
+
+.footer-section h4 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #00529b;
+}
+
+.footer-section p,
+.footer-section li {
+  margin: 0.3rem 0;
+}
+
+.footer-section ul {
+  list-style: disc inside;
+  padding-left: 1rem;
+  margin: 0;
+}
+
+/* Footer bottom (copyright) */
+.footer-bottom {
+  background-color: #d9d9d9;      /* gris moyen pour séparer */
+  text-align: center;
+  font-size: 0.8rem;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  color: #333;
+  border-top: 1px solid #ccc;
+}
+
+/* ========================================================================== */
+/*  RESPONSIVE (ajustements pour petits écrans)                                */
+/* ========================================================================== */
+
+/* Sous 768px, menu nav passe en petit, conteneurs images s’empilent */
+@media (max-width: 767px) {
+  /* Header : on centre le menu sous le logo */
   header {
-    flex-direction: column; /* on empile logo et menu en colonne */
-    row-gap: 0.5rem;        /* espace vertical entre logo et menu */
+    flex-direction: column;
+    row-gap: 0.5rem;
+    align-items: flex-start;      /* logo + menu à gauche */
   }
   nav ul {
-    justify-content: center; /* centre les liens sur petit écran */
+    align-items: flex-start;      /* recrée l’alignement à gauche */
+  }
+  /* Conteneur des visuels empilé */
+  .offres-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .offre-item {
+    max-width: 90%;               /* occupe 90% de la largeur */
+  }
+}
+
+/* Très petits écrans (< 480px) */
+@media (max-width: 480px) {
+  header {
+    padding: 0.5rem;
   }
   header .logo img {
-    height: 40px;            /* réduit encore le logo si nécessaire */
+    height: 40px;                 /* réduit encore le logo */
+  }
+  nav a {
+    font-size: 0.9rem;
+    padding: 0.25rem 0.5rem;
+  }
+  .actions button {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
   }
 }

@@ -4,49 +4,60 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Offre du moment – CFL Services</title>
-  <!-- On suppose que votre CSS est dans assets/css/styles.css -->
+  <!-- Lien vers votre CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <!-- === HEADER / Navigation === -->
-<header>
-  <div class="logo">
-    <a href="index.html">
-      <img src="assets/img/logo.png.png" alt="Logo CFL Services">
-    </a>
-  </div>
-  <nav>
-    <ul>
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="tarifs.html">Grille Tarifaire</a></li>
-      <li><a href="offre.html">Offre du moment</a></li>
-      <li><a href="conditions.html">Infos &amp; Conditions</a></li>
-    </ul>
-  </nav>
-</header>
-  <!-- === CONTENU PRINCIPAL === -->
-  <main class="offres-images">
-    <h1>Offre du moment</h1>
-    <p>Découvrez nos promotions de la semaine&nbsp;! (Cliquez sur l’image pour agrandir)</p>
 
+  <!-- ===== EN-TÊTE / HEADER ===== -->
+  <header>
+    <!-- Logo CFL -->
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/img/logo.png" alt="Logo CFL Services">
+      </a>
+    </div>
+
+    <!-- Menu vertical -->
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="tarifs.html">Grille Tarifaire</a></li>
+        <li><a href="offre.html" class="active">Offre du moment</a></li>
+        <li><a href="conditions.html">Infos &amp; Conditions</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== TITRE de la page “Offre du moment” ===== -->
+  <div class="offre-header">
+    <h1>Offre du moment</h1>
+  </div>
+
+  <!-- ===== CONTENU PRINCIPAL ===== -->
+  <main class="offres-images">
+    <p>Découvrez nos promotions de la semaine ! (Cliquez sur l’image pour agrandir)</p>
+
+    <!-- Conteneur des deux visuels côte à côte -->
     <div class="offres-container">
       <!-- Visuel n°1 -->
       <figure class="offre-item">
-        <a href="assets/img/offre1.png.png" target="_blank" rel="noopener">
-          <img src="assets/img/offre1.png.png" alt="Offre du moment – visuel 1">
+        <a href="assets/img/offre1.png" target="_blank" rel="noopener">
+          <img src="assets/img/offre1.png" alt="Offre du moment – Visuel 1">
         </a>
         <figcaption>Promo N°1</figcaption>
       </figure>
 
       <!-- Visuel n°2 -->
       <figure class="offre-item">
-        <a href="assets/img/offre2.png.png" target="_blank" rel="noopener">
-          <img src="assets/img/offre2.png.png" alt="Offre du moment – visuel 2">
+        <a href="assets/img/offre2.png" target="_blank" rel="noopener">
+          <img src="assets/img/offre2.png" alt="Offre du moment – Visuel 2">
         </a>
         <figcaption>Promo N°2</figcaption>
       </figure>
+    </div>
 
-         <!-- Boutons d’action -->
+    <!-- Boutons d’action Mail & WhatsApp -->
     <div class="actions">
       <button type="button" onclick="location.href='mailto:ventes@cfl-services.fr'">
         📧 Mail
@@ -57,48 +68,47 @@
     </div>
   </main>
 
-  <!-- === FOOTER === -->
-<footer>
-  <div class="footer-container">
-    <!-- Bloc coordonnées -->
-    <div class="footer-section">
-      <h4>Contactez-nous</h4>
-      <p>CFL Services – SAS
-      <p>31 Avenue de Saint Guillan, 31620 Castelnau-d’Estrétefonds
-      <p>Tél. : <a href="tel:+33616070555">06 16 07 05 55</a>
-      <p>Email : <a href="mailto:ventes@cfl-services.fr">ventes@cfl-services.fr</a>
-      </p>
-      <p>Horaires :
-        <br>Retrait : Mardi & Jeudi 12 h–18 h / Mercredi & Vendredi 11 h–13 h
-        <br>Livraison : Mercredi & Vendredi 8 h–13 h
-      </p>
+  <!-- ===== FOOTER PRINCIPAL ===== -->
+  <footer>
+    <div class="footer-container">
+      <!-- Bloc coordonnées -->
+      <div class="footer-section">
+        <h4>Contactez-nous</h4>
+        <p>CFL Services – SAS</p>
+        <p>31 Avenue de Saint Guillan, 31620 Castelnau-d’Estrétefonds</p>
+        <p>Tél. : <a href="tel:+33616070555">06 16 07 05 55</a></p>
+        <p>Email : <a href="mailto:ventes@cfl-services.fr">ventes@cfl-services.fr</a></p>
+        <p>Horaires :<br>
+          Retrait : Mardi &amp; Jeudi 12 h–18 h / Mercredi &amp; Vendredi 11 h–13 h<br>
+          Livraison : Mercredi &amp; Vendredi 8 h–13 h
+        </p>
+      </div>
+
+      <!-- Bloc liens rapides -->
+      <div class="footer-section">
+        <h4>Liens utiles</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="tarifs.html">Grille Tarifaire</a></li>
+          <li><a href="conditions.html">Conditions Générales de Vente</a></li>
+        </ul>
+      </div>
+
+      <!-- Bloc infos légales -->
+      <div class="footer-section">
+        <h4>Informations légales</h4>
+        <p>SAS CFL Services – Capital 510 €</p>
+        <p>RCS Toulouse : 918 181 348</p>
+        <p>TVA Intracom : FR39 918181348</p>
+        <p>Hébergeur : GitHub Pages (GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA)</p>
+      </div>
     </div>
 
-    <!-- Bloc liens rapides -->
-    <div class="footer-section">
-      <h4>Liens utiles</h4>
-      <ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="tarifs.html">Grille Tarifaire</a></li>
-        <li><a href="conditions.html">Conditions Générales de Vente</a></li>
-      </ul>
+    <!-- Bas du footer (copyright) -->
+    <div class="footer-bottom">
+      <p>© 2025 CFL Services. Tous droits réservés.</p>
     </div>
+  </footer>
 
-    <!-- Bloc infos légales -->
-    <div class="footer-section">
-      <h4>Informations légales</h4>
-      <p>SAS CFL Services – Capital 510 €
-      <p>RCS Toulouse : 918 181 348
-      <p>TVA Intracom : FR39 918181348
-      <p>Hébergeur : GitHub Pages (GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA)
-     </p>
-    </div>
-  </div>
-
-  <!-- Bas de footer avec copyright -->
-  <div class="footer-bottom">
-    <p>© 2025 CFL Services. Tous droits réservés.</p>
-  </div>
-</footer>
 </body>
 </html>
