@@ -35,32 +35,35 @@ header .logo img {
 }
 
 /* === Menu  === */
+
 nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
 
-  display: flex;                  
-  flex-direction: column;         /* menu en colonne */
-  gap: 0.5rem;                    /* espace entre chaque lien */
+  display: flex;        /* Flexbox en ligne (par défaut: flex-direction : row) */
+  flex-wrap: wrap;      /* autorise le retour à la ligne si l’écran est trop étroit */
+  gap: 1rem;            /* espace entre chaque lien */
+  justify-content: flex-end; /* aligne les liens à droite */
+  align-items: center;  /* centre verticalement les liens */
 }
 
 nav ul li {
-  margin: 0;                      
+  margin: 0;            /* pas de marge verticale supplémentaire */
 }
 
 nav a {
-  color: #fff;                    /* texte blanc */
+  color: #fff;           
   text-decoration: none;
   font-weight: 500;
-  padding: 0.25rem 0.5rem;        /* zone cliquable */
-  display: inline-block;          
+  padding: 0.25rem 0.5rem; /* zone cliquable */
+  display: inline-block;
 }
 
 nav a:hover,
 nav a.active {
-  text-decoration: underline;     
-  background-color: #444;         /* léger fond au survol/actif */
+  text-decoration: underline;
+  background-color: #444;  /* léger fond au survol / lien actif */
   border-radius: 4px;
 }
 
