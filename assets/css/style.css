@@ -131,6 +131,11 @@ main.offres-images p {
   font-size: 0.95rem;
   color: #333;
 }
+/* Nouvelle classe pour rendre en rouge et gras */
+.caption-important {
+  color: red;         /* passe en rouge */
+  font-weight: bold;  /* texte en gras */
+}
 
 /* Boutons d’action sous les visuels (Mail & WhatsApp) */
 .actions {

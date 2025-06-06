@@ -34,42 +34,45 @@
     <h1>Offre du moment</h1>
   </div>
 
-  <!-- ===== CONTENU PRINCIPAL ===== -->
-  <main class="offres-images">
-    <p>Découvrez nos promotions de la semaine ! (Cliquez sur l’image pour agrandir)</p>
+<!-- ===== CONTENU PRINCIPAL ===== -->
+<main class="offres-images">
+  <p>Découvrez nos promotions de la semaine ! (Cliquez sur l’image pour agrandir)</p>
 
-    <!-- Conteneur des deux visuels côte à côte -->
-<div class="offres-container">
-  <!-- Visuel n°1 -->
-  <figure class="offre-item">
-    <a href="assets/img/offre1.png.png" target="_blank" rel="noopener">
-      <img src="assets/img/offre1.png.png" 
-           alt="Offre 1 – Valable en retrait & livraison, remises applicables">
-</a>
-<figcaption style="color: red; font-weight: bold;">
-  Valable en retrait & livraison, remises applicables.
-</figcaption>
+  <!-- Conteneur des deux visuels côte à côte -->
+  <div class="offres-container">
+    <!-- Visuel n°1 -->
+    <figure class="offre-item">
+      <a href="assets/img/offre1.png" target="_blank" rel="noopener">
+        <img src="assets/img/offre1.png"
+             alt="Offre 1 – Valable en retrait & livraison, remises applicables">
+      </a>
+      <figcaption class="caption-important">
+        Valable en retrait & livraison, remises applicables.
+      </figcaption>
+    </figure>
 
-  <!-- Visuel n°2 -->
-  <figure class="offre-item">
-    <a href="assets/img/offre2.png.png" target="_blank" rel="noopener">
-      <img src="assets/img/offre2.png.png" 
-           alt="Offre 2 – Valable uniquement en retrait, remises non applicables.">
-</a>
-<figcaption style="color: red; font-weight: bold;">
-  DLC COURTE valable uniquement en retrait, remises non applicables
-</figcaption>
+    <!-- Visuel n°2 -->
+    <figure class="offre-item">
+      <a href="assets/img/offre2.png" target="_blank" rel="noopener">
+        <img src="assets/img/offre2.png"
+             alt="Offre 2 – Valable uniquement en retrait, remises non applicables">
+      </a>
+      <figcaption class="caption-important">
+        DLC COURTE valable uniquement en retrait, remises non applicables.
+      </figcaption>
+    </figure>
+  </div>
+</main>
 
-    <!-- Boutons d’action Mail & WhatsApp -->
-    <div class="actions">
-      <button type="button" onclick="location.href='mailto:ventes@cfl-services.fr'">
-        📧 Mail
-      </button>
-      <button type="button" onclick="window.open('https://wa.me/33616070555')">
-        💬 WhatsApp
-      </button>
-    </div>
-  </main>
+<!-- Boutons d’action Mail & WhatsApp (EN-DEHORS de .offres-container) -->
+<div class="actions">
+  <button type="button" onclick="location.href='mailto:ventes@cfl-services.fr'">
+    📧 Mail
+  </button>
+  <button type="button" onclick="window.open('https://wa.me/33616070555')">
+    💬 WhatsApp
+  </button>
+</div>
 
   <!-- ===== FOOTER PRINCIPAL ===== -->
   <footer>
