@@ -433,31 +433,6 @@ footer {
   color: #666;              /* gris foncé pour que ce soit discret */
 }
 
-/* Exemple à mettre dans assets/styles.css */
-main.offres-actuelles {
-  padding: 2rem;
-  background-color: #f9f9f9;
-}
-.promo-produit {
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-}
-.promo-produit img {
-  max-width: 100%;
-  height: auto;
-  margin-top: 0.5rem;
-}
-.alerte-offre {
-  text-align: center;
-  color: #0056b3;     /* un bleu plus doux / accessible */
-  padding: 0.5rem 0;
-  font-weight: bold;   /* pour attirer l’attention sans mettre tout en majuscules */
-  background-color: #f0f8ff; /* léger fond pour démarquer la ligne */
-}
-/* assets/css/styles.css */
-
 /* === Styles pour la page “Offre du moment” === */
 .offres-images {
   padding: 2rem 1rem;
