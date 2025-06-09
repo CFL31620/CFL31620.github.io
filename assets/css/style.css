@@ -385,7 +385,7 @@ th, td {
 
 /* --- 1a. Image de gauche (desktop) --- */
 .presentation-about .promo-image-left {
-  flex: 0 0 600px;             /* colonne fixe à 600px */
+  flex: 0 0 500px;             /* colonne fixe à 500px */
 }
 .presentation-about .promo-image-left img {
   width: 100%;
@@ -435,7 +435,7 @@ th, td {
 
 /* --- 1c. Image de droite (desktop) --- */
 .presentation-about .promo-image-right {
-  flex: 0 0 600px;             /* colonne fixe à 600px */
+  flex: 0 0 500px;             /* colonne fixe à 500px */
 }
 .presentation-about .promo-image-right img {
   width: 100%;
