@@ -397,7 +397,7 @@ th, td {
 
 /* --- 1b. Colonne centrale (3 blocs empilés) --- */
 .presentation-about .about-blocks {
-  flex: 0 0 600px;             /* même largeur que l’image (600px) */
+  flex: 0 0 500px;             /* même largeur que l’image (600px) */
   display: flex;
   flex-direction: column;      /* empile verticalement les 3 blocs */
   gap: 1rem;
