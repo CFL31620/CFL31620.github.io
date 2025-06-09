@@ -385,7 +385,7 @@ th, td {
 
 /* --- 1a. Image de gauche (desktop) --- */
 .presentation-about .promo-image-left {
-  flex: 0 0 500px;             /* colonne fixe à 500px */
+  flex: 0 0 550px;             /* colonne fixe à 550px */
 }
 .presentation-about .promo-image-left img {
   width: 100%;
@@ -397,7 +397,7 @@ th, td {
 
 /* --- 1b. Colonne centrale (3 blocs empilés) --- */
 .presentation-about .about-blocks {
-  flex: 0 0 500px;             /* même largeur que l’image (600px) */
+  flex: 0 0 550px;             /* même largeur que l’image (550px) */
   display: flex;
   flex-direction: column;      /* empile verticalement les 3 blocs */
   gap: 1rem;
@@ -435,7 +435,7 @@ th, td {
 
 /* --- 1c. Image de droite (desktop) --- */
 .presentation-about .promo-image-right {
-  flex: 0 0 500px;             /* colonne fixe à 500px */
+  flex: 0 0 550px;             /* colonne fixe à 550px */
 }
 .presentation-about .promo-image-right img {
   width: 100%;
