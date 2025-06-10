@@ -94,19 +94,29 @@
   Tarif valable du 09/06/25 au 15/06/25
 </div>
 
-    <!-- Formulaire -->
-    <section class="how-to-use">
-      <form id="form-calcul">
-        <label for="mode"><strong>Mode :</strong></label>
-        <select id="mode">
-          <option value="livraison">Livraison</option>
-          <option value="retrait">Retrait</option>
-        </select>
-        <label for="date-choisie"><strong>Date souhaitée :</strong></label>
-        <input type="date" id="date-choisie" />
-        <button type="button" id="btn-calcul">Mettre à jour les prix</button>
-      </form>
-    </section>
+<!-- Formulaire -->
+<section class="how-to-use">
+  <form id="form-calcul">
+    <!-- Nouveaux champs nom / prénom -->
+    <label for="nom"><strong>Nom :</strong></label>
+    <input type="text" id="nom" name="nom" placeholder="Votre nom" required />
+
+    <label for="prenom"><strong>Prénom :</strong></label>
+    <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required />
+
+    <!-- Contrôles existants -->
+    <label for="mode"><strong>Mode :</strong></label>
+    <select id="mode" name="mode">
+      <option value="livraison">Livraison</option>
+      <option value="retrait">Retrait</option>
+    </select>
+
+    <label for="date-choisie"><strong>Date souhaitée :</strong></label>
+    <input type="date" id="date-choisie" name="date-choisie" />
+
+    <button type="button" id="btn-calcul">Mettre à jour les prix</button>
+  </form>
+</section>
 
     <!-- Tableau de saisie -->
     <table id="order-table">
@@ -184,6 +194,8 @@
 <div id="pdf-summary">
   <!-- Tableau récapitulatif -->
   <h2>Récapitulatif de votre commande</h2>
+ <p><strong>Nom :</strong> <span id="nom-recap"></span></p>
+  <p><strong>Prénom :</strong> <span id="prenom-recap"></span></p>
   <p><strong>Mode :</strong> <span id="mode-recap"></span></p>
   <p><strong>Date souhaitée :</strong> <span id="date-recap"></span></p>
   <table id="summary-table">

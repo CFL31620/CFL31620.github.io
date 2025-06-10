@@ -127,18 +127,32 @@ function updatePrices() {
     totalNet.toFixed(2).replace('.', ',') + ' €';
 
   // ─── Étape E : remplir le récapitulatif PDF ────────────────────────
+function updatePrices() {
+  // ─── NOUVELLE PARTIE : nom & prénom ──────────────────────────────
+  const nom     = document.getElementById('nom').value;
+  const prenom  = document.getElementById('prenom').value;
+  document.getElementById('nom-recap').innerText    = nom;
+  document.getElementById('prenom-recap').innerText = prenom;
+  // ────────────────────────────────────────────────────────────────
+
+ // ─── Étape E : remplir le récapitulatif PDF ────────────────────────
   const tb = document.querySelector('#summary-table tbody');
   tb.innerHTML = '';
 
-  document.getElementById('sumWithRemise').innerText = 
+  document.getElementById('mode-recap').innerText    =
+    document.getElementById('mode').value;
+  document.getElementById('date-recap').innerText    =
+    document.getElementById('date-choisie').value;
+
+  document.getElementById('sumWithRemise').innerText =
     sumWithRemise.toFixed(2).replace('.', ',') + ' €';
-  document.getElementById('sumRemise').innerText    = 
+  document.getElementById('sumRemise').innerText    =
     (sumSansRemise - sumWithRemise).toFixed(2).replace('.', ',') + ' €';
-  document.getElementById('sumPort').innerText      = 
-    port > 0 
-      ? port.toFixed(2).replace('.', ',') + ' €' 
+  document.getElementById('sumPort').innerText      =
+    port > 0
+      ? port.toFixed(2).replace('.', ',') + ' €'
       : 'OFFERT';
-  document.getElementById('sumNet').innerText       = 
+  document.getElementById('sumNet').innerText       =
     totalNet.toFixed(2).replace('.', ',') + ' €';
 
   rows.forEach(tr => {
