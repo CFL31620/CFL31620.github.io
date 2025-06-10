@@ -17,6 +17,8 @@ window.addEventListener('DOMContentLoaded', () => {
   if (btnCalc) {
     btnCalc.addEventListener('click', updatePrices);
   }
+});
+  
   // 3) Lier le bouton “Générer PDF”
   const btnPdf = document.getElementById('btn-pdf');
   console.log('btn-pdf trouvé :', btnPdf, 'html2pdf ?', typeof html2pdf);
