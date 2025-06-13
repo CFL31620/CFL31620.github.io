@@ -554,7 +554,6 @@ th, td {
   visibility: hidden;
   width: 210mm;   /* largeur A4 pour html2pdf */
 }
-
 /* ==========================================================================
    2) En PDF-mode, on replace #grid-summary dans le flux pour html2pdf
    ========================================================================== */
