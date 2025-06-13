@@ -161,8 +161,12 @@
     </ul>
   </section>
 
+<!-- ===== CONTENU À EXPORTER ===== -->
+<div id="grid-summary">
+  <!-- Logo, infos, conditions… -->
+
   <!-- Tableau réduit à exporter -->
-  <table id="export-table" style="width:100%; border-collapse: collapse;">
+  <table id="export-table" style="width:80%; border-collapse: collapse;">
     <thead>
       <tr>
         <th style="border:1px solid #ccc;padding:4px;">Produit</th>
@@ -171,20 +175,25 @@
       </tr>
     </thead>
     <tbody>
+      <!-- lignes générées dynamiquement -->
+    </tbody>
   </table>
-</div>
-    <table id="order-table">
-      <thead>
-        <tr>
-          <th>Produit</th>
-          <th style="width:100px;">Prix €/kg<br>avant remise</th>
-          <th style="width:80px;">Poids/poche</th>
-          <th>Qté (poche)</th>
-          <th style="width:100px;">Poids total<br>(kg)</th>
-          <th style="width:100px;">Prix €/kg<br>après remise</th>
-          <th style="width:120px;">Montant total<br>(€)</th>
-        </tr>
-      </thead>
+</div>  <!-- fin de #grid-summary -->
+
+<!-- ===== TABLEAU PRINCIPAL ===== -->
+<table id="order-table">
+  <thead>
+    <tr>
+      <th>Produit</th>
+      <th style="width:100px;">Prix €/kg<br>avant remise</th>
+      <th style="width:80px;">Poids/poche</th>
+      <th>Qté (poche)</th>
+      <th style="width:100px;">Poids total<br>(kg)</th>
+      <th style="width:100px;">Prix €/kg<br>après remise</th>
+      <th style="width:120px;">Montant total<br>(€)</th>
+    </tr>
+  </thead>
+  <tbody>
       <tbody>
 <tr><td colspan="7" style="text-align:center;color:blue;">PORC</td></tr>
 <tr><td>SAUTE EPAULE PORC 50/70GR</td><td>8,00 €</td><td>6 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td><!-- Prix après remise --><td class="amount"></td><!-- Montant total --></tr>
