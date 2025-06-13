@@ -66,18 +66,30 @@ function updatePrices() {
     document.querySelectorAll('#order-table tbody tr')
   );
 
-  // ─── Étape A : Calcul du poids total ───────────────────────────────────────
-  let totalWeight   = 0;
-  rows.forEach(tr => {
-    const inp = tr.querySelector('input.qty');
-    if (!inp) return;
-    const qty  = parseInt(inp.value, 10) || 0;
-    const pack = parseFloat(tr.cells[2].textContent) || 0; // poids/poche
-    const w    = qty * pack;
-    tr.cells[4].textContent = w.toFixed(2).replace('.', ',') + ' kg';
-    tr.dataset.weight       = w;
-    totalWeight           += w;
-  });
+// ─── Étape A : Calcul du poids total ───────────────────────────────────────
+let totalWeight = 0;
+rows.forEach(tr => {
+  const inp = tr.querySelector('input.qty');
+  if (!inp) return;
+
+  const qty = parseInt(inp.value, 10) || 0;
+
+  // 1) On nettoie le texte pour récupérer un nombre au format JS  
+  let packText = tr.cells[2].textContent
+    .trim()                 // retire espaces autour
+    .replace(/\s*kg\s*$/i, '') // supprime "kg" à la fin (avec ou sans espace, insensible à la casse)
+    .replace(',', '.');     // remplace la virgule par un point
+
+  // 2) parseFloat lit bien 0.05, 4.5, etc.
+  const pack = parseFloat(packText) || 0;
+
+  // 3) calcul du poids pour cette ligne
+  const w = qty * pack;
+
+  tr.cells[4].textContent = w.toFixed(2).replace('.', ',') + ' kg';
+  tr.dataset.weight       = w;
+  totalWeight           += w;
+});
 
   // ─── Étape B : Remise €/kg et frais de port ───────────────────────────────
   let discPerKg = 0;
@@ -127,39 +139,54 @@ function updatePrices() {
   document.getElementById('totalAmount').innerText =
     totalNet.toFixed(2).replace('.', ',') + ' €';
 
-  // ─── Étape E : Remplir le récapitulatif PDF ──────────────────────────────
-  const tb = document.querySelector('#summary-table tbody');
-  tb.innerHTML = '';
-  document.getElementById('sumWithRemise').innerText =
-    sumWithRemise.toFixed(2).replace('.', ',') + ' €';
-  document.getElementById('sumRemise').innerText =
-    (sumSansRemise - sumWithRemise).toFixed(2).replace('.', ',') + ' €';
-  document.getElementById('sumPort').innerText =
-    port > 0
-      ? port.toFixed(2).replace('.', ',') + ' €'
-      : 'OFFERT';
-  document.getElementById('sumNet').innerText =
-    totalNet.toFixed(2).replace('.', ',') + ' €';
+// ─── Étape E : remplir le récapitulatif PDF ──────────────────────────────
+const tb = document.querySelector('#summary-table tbody');
+tb.innerHTML = '';
 
-  rows.forEach(tr => {
-    const inp = tr.querySelector('input.qty');
-    if (!inp || (+inp.value === 0)) return;
-    const name     = tr.cells[0].textContent;
-    const qty      = +inp.value;
-    const w        = parseFloat(tr.dataset.weight) || 0;
-    const sousSans = parseFloat(
-      tr.cells[1].textContent.replace('€','').replace(',','.')
-    ) * w;
-    const sousAvec = parseFloat(
-      tr.cells[6].textContent.replace('€','').replace(',','.')
-    );
-    const r = document.createElement('tr');
-    r.innerHTML =
-      `<td>${name}</td>` +
-      `<td>${qty}</td>` +
-      `<td>${w.toFixed(2).replace('.', ',')}</td>` +
-      `<td>${sousSans.toFixed(2).replace('.', ',')} €</td>` +
-      `<td>${sousAvec.toFixed(2).replace('.', ',')} €</td>`;
-    tb.appendChild(r);
-  });
-}
+// Génération des lignes de détail avec colonne “Prix €/kg après remise”
+rows.forEach(tr => {
+  const inp = tr.querySelector('input.qty');
+  if (!inp || (+inp.value === 0)) return;
+
+  const name     = tr.cells[0].textContent.trim();
+  const qty      = +inp.value;
+  const w        = parseFloat(tr.dataset.weight) || 0;
+
+  // Sous-total sans remise
+  const prixAvant = parseFloat(
+    tr.cells[1].textContent.replace('€', '').replace(',', '.')
+  ) || 0;
+  const sousSans = prixAvant * w;
+
+  // Prix €/kg après remise (colonne 5 de votre tableau principal)
+  const prixApres = parseFloat(
+    tr.cells[5].textContent
+      .replace('€/kg', '')
+      .replace('€', '')
+      .replace(',', '.')
+      .trim()
+  ) || 0;
+  const sousAvec = prixApres * w;
+
+  const r = document.createElement('tr');
+  r.innerHTML =
+    `<td>${name}</td>` +
+    `<td>${qty}</td>` +
+    `<td>${w.toFixed(2).replace('.', ',')} kg</td>` +
+    `<td>${prixApres.toFixed(2).replace('.', ',')} €/kg</td>` +
+    `<td>${sousSans.toFixed(2).replace('.', ',')} €</td>` +
+    `<td>${sousAvec.toFixed(2).replace('.', ',')} €</td>`;
+  tb.appendChild(r);
+});
+
+// Mise à jour des totaux (une seule fois, hors de la boucle)
+document.getElementById('sumWithRemise').innerText =
+  sumWithRemise.toFixed(2).replace('.', ',') + ' €';
+document.getElementById('sumRemise').innerText =
+  (sumSansRemise - sumWithRemise).toFixed(2).replace('.', ',') + ' €';
+document.getElementById('sumPort').innerText =
+  port > 0
+    ? port.toFixed(2).replace('.', ',') + ' €'
+    : 'OFFERT';
+document.getElementById('sumNet').innerText =
+  totalNet.toFixed(2).replace('.', ',') + ' €';
