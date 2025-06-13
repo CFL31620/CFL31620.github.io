@@ -98,31 +98,26 @@
 <!-- Formulaire -->
 <section class="how-to-use">
   <form id="form-calcul">
-    <!-- Nouveaux champs nom / prénom -->
     <label for="nom"><strong>Nom :</strong></label>
     <input type="text" id="nom" name="nom" placeholder="Votre nom" required />
-
     <label for="prenom"><strong>Prénom :</strong></label>
     <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required />
-
-    <!-- Contrôles existants -->
     <label for="mode"><strong>Mode :</strong></label>
     <select id="mode" name="mode">
       <option value="livraison">Livraison</option>
       <option value="retrait">Retrait</option>
     </select>
-
     <label for="date-choisie"><strong>Date souhaitée :</strong></label>
     <input type="date" id="date-choisie" name="date-choisie" />
-
-    <button type="button" id="btn-calcul">Mettre à jour les prix</button>
   </form>
 </section>
-
-<!-- ===== BOUTON D’EXPORT PDF ===== -->
-<button id="btn-export-grid" style="margin:1rem 0; padding:0.5rem 1rem;">
-  📄 Télécharger la grille tarifaire (PDF)
-</button>
+<!-- Regroupement des deux boutons, centré -->
+<div class="actions-grid">
+  <button id="btn-calcul" class="btn-cfl">Mettre à jour les prix</button>
+  <button id="btn-export-grid" class="btn-cfl">
+    📄 Télécharger la grille tarifaire (PDF)
+  </button>
+</div>
 
 <!-- ===== CONTENU À EXPORTER ===== -->
 <div id="grid-summary" style="display:none;">
