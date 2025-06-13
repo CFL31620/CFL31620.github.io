@@ -110,22 +110,21 @@
     <label for="date-choisie"><strong>Date souhaitée :</strong></label>
     <input type="date" id="date-choisie" name="date-choisie" />
   </form>
-</section>
 
 <!-- Regroupement des deux boutons, centré -->
 <div class="actions-grid">
   <button id="btn-calcul" class="btn-cfl">Mettre à jour les prix</button>
   <button id="btn-export-grid" class="btn-cfl">
     📄 Télécharger la grille tarifaire (PDF)
-  </button>
 </div>
+</section>
 
 <!-- ===== CONTENU À EXPORTER ===== -->
 <div id="grid-summary">
   <!-- Logo CFL -->
-  <div style="text-align:left; margin-bottom:1rem;">
+      <div class="export-header">
     <img src="assets/img/logo.png.png" alt="Logo CFL" style="height:50px;">
-  </div>
+    <p style="font-size:14px; color:#333; margin-top:0.5rem">
 
   <!-- Infos de mise à jour -->
   <div style="margin-bottom:1rem; font-size:14px; color:#333;">
@@ -135,7 +134,7 @@
   </div>
 
   <!-- Conditions & Remises -->
-  <section class="pricing-conditions" style="margin-bottom:1rem;">
+  <section class="pricing-conditions">
     <h3>Conditions &amp; Remises</h3>
     <ul class="conditions-list">
       <li>Condition : min. 10 kg</li>
@@ -168,7 +167,6 @@
       <tr>
         <th style="border:1px solid #ccc;padding:4px;">Produit</th>
         <th style="border:1px solid #ccc;padding:4px;">Prix €/kg avant remise</th>
-        <th style="border:1px solid #ccc;padding:4px;">Qté (poche)</th>
       </tr>
     </thead>
     <tbody>
@@ -240,7 +238,6 @@
 <tr><td>GRILLADE PORC FR</td><td>13,35 €</td><td>3 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td> <!-- Prix après remise --><td class="amount"></td> <!-- Montant total --></tr>
 <tr><td>FILET MIGNON FR</td><td>13,85 €</td><td>3 kg</td><td><input type="number" class="qty" min="0" step="1" value="0"></td><td class="weight"></td><td class="price-after"></td> <!-- Prix après remise --><td class="amount"></td> <!-- Montant total --></tr>
  </tbody>
-
  <tfoot>
     <tr>
       <th colspan="4" style="text-align:right">Total général :</th>

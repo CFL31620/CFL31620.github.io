@@ -543,28 +543,25 @@ th, td {
   .top-row {
     flex-direction: column;
   }
-
 /* ========================================================================== */
-/* 1) Conteneur PDF hors-écran en lecture normale                            */
+/* 1) À l’écran, on cache totalement le conteneur PDF et la section Remises   */
 /* ========================================================================== */
-#grid-summary {
-  position: absolute;
-  top: -9999px;
-  left: -9999px;
-  visibility: hidden;
-  width: 210mm;   /* largeur A4 pour html2pdf */
+#grid-summary,
+.pricing-conditions {
+  display: none !important;
 }
 
 /* ========================================================================== */
-/* 2) En PDF-mode, on replace #grid-summary dans le flux pour html2pdf       */
+/* 2) En mode PDF (body.pdf-mode), on n’affiche QUE le conteneur PDF + Remises */
+/*    et on masque absolument tout le reste                                  */
 /* ========================================================================== */
-body.pdf-mode #grid-summary {
-  position: static;
-  visibility: visible;
+body.pdf-mode #grid-summary,
+body.pdf-mode .pricing-conditions {
+  display: block !important;
 }
 
 /* ========================================================================== */
-/* 3) En mode “pdf”, on cache nav, le formulaire et tous les boutons/actions */
+/* 3) Cachons nav, formulaire & tous les boutons/actions en PDF-mode         */
 /* ========================================================================== */
 body.pdf-mode nav,
 body.pdf-mode #form-calcul,
@@ -577,21 +574,8 @@ body.pdf-mode #btn-export-grid {
 }
 
 /* ========================================================================== */
-/* 4) Masquer la section “Conditions & Remises” à l’écran                    */
+/* 4) Boutons CFL (btn-cfl) — même style que tes autres boutons bleu          */
 /* ========================================================================== */
-.pricing-conditions {
-  display: none;
-}
-
-/* ========================================================================== */
-/* 5) Réafficher “Conditions & Remises” uniquement en PDF-mode               */
-/* ========================================================================== */
-body.pdf-mode .pricing-conditions {
-  display: block !important;
-}
-
-
-/* Boutons CFL bleus */
 .btn-cfl {
   background-color: #00529b;
   color: #fff;
@@ -607,7 +591,9 @@ body.pdf-mode .pricing-conditions {
   background-color: #003f6b;
 }
 
-/* Conteneur centré pour ces actions */
+/* ========================================================================== */
+/* 5) Conteneur centré pour les deux boutons                                   */
+/* ========================================================================== */
 .actions-grid {
   display: flex;
   justify-content: center;
@@ -615,3 +601,4 @@ body.pdf-mode .pricing-conditions {
   flex-wrap: wrap;
   margin: 1.5rem 0;
 }
+
