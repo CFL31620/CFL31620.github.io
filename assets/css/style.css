@@ -546,12 +546,11 @@ th, td {
 }
 
 /* Quand on est en mode “pdf” on cache .actions */
-body.pdf-mode .actions {
-  display: none !important;
-}
+body.pdf-mode .actions
 body.pdf-mode nav,
 body.pdf-mode #btn-export-grid {
-  display: none !important;
+display: none !important;
+}
 /* ========== Masquer la section Conditions & Remises à l’écran ========== */
 .pricing-conditions {
   display: none;
