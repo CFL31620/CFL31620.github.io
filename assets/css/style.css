@@ -613,5 +613,63 @@ body.pdf-mode #btn-pdf {
 body.pdf-mode #pdf-summary {
   display: block !important;
 }
+/* ========================================================================== */
+/* 1) À l’écran, on cache uniquement le bloc export (la grille à télécharger) */
+/* ========================================================================== */
+#grid-summary {
+  display: none !important;
+}
+
+/* ========================================================================== */
+/* 2) En mode PDF (body.pdf-mode), on n’affiche QUE le bloc export et sa      */
+/*    section Conditions & Remises, et on masque TOUT le reste                */
+/* ========================================================================== */
+body.pdf-mode {
+  /* on cache l’intégralité de la page */
+  visibility: hidden;
+}
+body.pdf-mode #grid-summary {
+  /* sauf #grid-summary qui redevient visible */
+  display: block !important;
+  visibility: visible;
+  position: static;
+}
+body.pdf-mode #grid-summary * {
+  /* et tous ses éléments internes sont visibles */
+  visibility: visible;
+}
+
+/* ========================================================================== */
+/* 3) Boutons, nav, formulaire et footer totalement masqués en PDF-mode      */
+/* ========================================================================== */
+body.pdf-mode header,
+body.pdf-mode nav,
+body.pdf-mode #form-calcul,
+body.pdf-mode .actions,
+body.pdf-mode .actions-grid,
+body.pdf-mode #btn-calcul,
+body.pdf-mode #btn-export-grid,
+body.pdf-mode #btn-pdf,
+body.pdf-mode footer {
+  display: none !important;
+}
+
+/* ========================================================================== */
+/* 4) On remet par défaut le style des Conditions & Remises du top-row        */
+/* ========================================================================== */
+.pricing-conditions {
+  display: block; /* reste visible en écran */
+}
+
+/* ========================================================================== */
+/* 5) Si tu veux distinguer visuellement la section export dans ton export    */
+/*    tu peux lui donner une marge ou un fond spécifique                      */
+/* ========================================================================== */
+#grid-summary {
+  background: #fff;
+  padding: 1rem;
+  margin: 0 auto;
+  width: 210mm; /* A4 */
+}
 
 
