@@ -544,7 +544,8 @@ th, td {
     flex-direction: column;
   }
 /* ========================================================================== */
-/* 1) À l’écran, on cache totalement le conteneur PDF et la section Remises   */
+/* 1) À l’écran, on cache totalement le conteneur grille PDF et la section    */
+/*    Conditions & Remises                                                    */
 /* ========================================================================== */
 #grid-summary,
 .pricing-conditions {
@@ -552,8 +553,8 @@ th, td {
 }
 
 /* ========================================================================== */
-/* 2) En mode PDF (body.pdf-mode), on n’affiche QUE le conteneur PDF + Remises */
-/*    et on masque absolument tout le reste                                  */
+/* 2) En mode PDF (body.pdf-mode), on n’affiche QUE le conteneur grille +     */
+/*    la section Conditions & Remises, et on masque tout le reste             */
 /* ========================================================================== */
 body.pdf-mode #grid-summary,
 body.pdf-mode .pricing-conditions {
@@ -561,20 +562,20 @@ body.pdf-mode .pricing-conditions {
 }
 
 /* ========================================================================== */
-/* 3) Cachons nav, formulaire & tous les boutons/actions en PDF-mode         */
+/* 3) En mode PDF, on cache nav, formulaire & tous les boutons/actions       */
 /* ========================================================================== */
 body.pdf-mode nav,
 body.pdf-mode #form-calcul,
 body.pdf-mode .actions,
 body.pdf-mode .actions-grid,
 body.pdf-mode #btn-calcul,
-body.pdf-mode #btn-pdf,
-body.pdf-mode #btn-export-grid {
+body.pdf-mode #btn-export-grid,
+body.pdf-mode #btn-pdf {
   display: none !important;
 }
 
 /* ========================================================================== */
-/* 4) Boutons CFL (btn-cfl) — même style que tes autres boutons bleu          */
+/* 4) Boutons CFL (btn-cfl) — style bleu CFL                                  */
 /* ========================================================================== */
 .btn-cfl {
   background-color: #00529b;
@@ -592,7 +593,7 @@ body.pdf-mode #btn-export-grid {
 }
 
 /* ========================================================================== */
-/* 5) Conteneur centré pour les deux boutons                                   */
+/* 5) Conteneur centré pour les deux boutons                                  */
 /* ========================================================================== */
 .actions-grid {
   display: flex;
@@ -601,4 +602,16 @@ body.pdf-mode #btn-export-grid {
   flex-wrap: wrap;
   margin: 1.5rem 0;
 }
+
+/* ========================================================================== */
+/* 6) (Optionnel) on peut aussi cacher par défaut le conteneur récap commande */
+/*    et ne l’afficher qu’en PDF-mode si besoin                                 */
+/* ========================================================================== */
+#pdf-summary {
+  display: none !important;
+}
+body.pdf-mode #pdf-summary {
+  display: block !important;
+}
+
 
