@@ -543,10 +543,10 @@ th, td {
   .top-row {
     flex-direction: column;
   }
-}
-/* ==========================================================================
-   1) Conteneur PDF hors-écran en lecture normale
-   ========================================================================== */
+
+/* ========================================================================== */
+/* 1) Conteneur PDF hors-écran en lecture normale                            */
+/* ========================================================================== */
 #grid-summary {
   position: absolute;
   top: -9999px;
@@ -554,36 +554,42 @@ th, td {
   visibility: hidden;
   width: 210mm;   /* largeur A4 pour html2pdf */
 }
-/* ==========================================================================
-   2) En PDF-mode, on replace #grid-summary dans le flux pour html2pdf
-   ========================================================================== */
+
+/* ========================================================================== */
+/* 2) En PDF-mode, on replace #grid-summary dans le flux pour html2pdf       */
+/* ========================================================================== */
 body.pdf-mode #grid-summary {
   position: static;
   visibility: visible;
 }
 
-/* ==========================================================================
-   3) En mode “pdf”, on cache .actions, nav et le bouton de la grille
-   ========================================================================== */
+/* ========================================================================== */
+/* 3) En mode “pdf”, on cache nav, le formulaire et tous les boutons/actions */
+/* ========================================================================== */
 body.pdf-mode nav,
+body.pdf-mode #form-calcul,
 body.pdf-mode .actions,
+body.pdf-mode .actions-grid,
+body.pdf-mode #btn-calcul,
+body.pdf-mode #btn-pdf,
 body.pdf-mode #btn-export-grid {
   display: none !important;
 }
 
-/* ==========================================================================
-   4) Masquer la section “Conditions & Remises” à l’écran
-   ========================================================================== */
+/* ========================================================================== */
+/* 4) Masquer la section “Conditions & Remises” à l’écran                    */
+/* ========================================================================== */
 .pricing-conditions {
   display: none;
 }
 
-/* ==========================================================================
-   5) Réafficher “Conditions & Remises” uniquement en PDF-mode
-   ========================================================================== */
+/* ========================================================================== */
+/* 5) Réafficher “Conditions & Remises” uniquement en PDF-mode               */
+/* ========================================================================== */
 body.pdf-mode .pricing-conditions {
   display: block !important;
 }
+
 
 /* Boutons CFL bleus */
 .btn-cfl {
