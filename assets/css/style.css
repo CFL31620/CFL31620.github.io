@@ -549,3 +549,17 @@ th, td {
 body.pdf-mode .actions {
   display: none !important;
 }
+body.pdf-mode nav,
+body.pdf-mode #btn-export-grid {
+  display: none !important;
+/* ========== Masquer la section Conditions & Remises à l’écran ========== */
+.pricing-conditions {
+  display: none;
+}
+
+/* ========== Au moment de l’export PDF, on la ré-affiche ========== */
+body.pdf-mode .pricing-conditions {
+  display: block !important;
+}
+
+}

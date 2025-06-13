@@ -23,6 +23,7 @@
     </ul>
   </nav>
 </header>
+
   <!-- Contenu principal -->
   <main>
     <!-- === Bloc 3 colonnes en haut de page === -->
@@ -118,27 +119,24 @@
   </form>
 </section>
 
-    <!-- Tableau de saisie -->
 <!-- ===== BOUTON D’EXPORT PDF ===== -->
 <button id="btn-export-grid" style="margin:1rem 0; padding:0.5rem 1rem;">
   📄 Télécharger la grille tarifaire (PDF)
 </button>
 
 <!-- ===== CONTENU À EXPORTER ===== -->
-<div id="grid-summary">
-  <!-- 1) Logo CFL -->
+<div id="grid-summary" style="display:none;">
+  <!-- Logo CFL -->
   <div style="text-align:left; margin-bottom:1rem;">
     <img src="assets/img/logo.png" alt="Logo CFL" style="height:50px;">
   </div>
-
-  <!-- 2) Infos de mise à jour -->
-  <section class="update-info" style="margin-bottom:1rem;">
-    <p><strong>Mise à jour tarif chaque vendredi pour la semaine suivante</strong></p>
-    <p>Dernière mise à jour : vendredi 06 juin</p>
-    <p>Tarif valable du 09/06/25 au 15/06/25</p>
-  </section>
-
-  <!-- 3) Conditions & Remises -->
+  <!-- Infos de mise à jour -->
+  <div style="margin-bottom:1rem; font-size:14px; color:#333;">
+    <strong>Mise à jour tarif chaque vendredi pour la semaine suivante</strong><br>
+    Dernière mise à jour : vendredi 06 juin<br>
+    Tarif valable du 09/06/25 au 15/06/25
+  </div>
+  <!-- Conditions & Remises -->
   <section class="pricing-conditions" style="margin-bottom:1rem;">
     <h3>Conditions &amp; Remises</h3>
     <ul class="conditions-list">
@@ -146,18 +144,18 @@
       <li>Frais de livraison :
         <ul>
           <li>6 € pour 10–15 kg</li>
-          <li>Offerts au-delà de 15 kg</li>
+          <li><strong>Offerts</strong> au-delà de 15 kg</li>
         </ul>
       </li>
       <li>Remises par poids :
         <ul>
           <li>10–30 kg : prix grille de base</li>
-          <li>30–60 kg : – 0,40 €/kg</li>
-          <li>60–100 kg : – 0,55 €/kg</li>
-          <li>+ 100 kg : – 0,80 €/kg</li>
+          <li>30–60 kg : –0,40 €/kg</li>
+          <li>60–100 kg : –0,55 €/kg</li>
+          <li>+ 100 kg : –0,80 €/kg</li>
         </ul>
       </li>
-      <li>Remise pour un retrait sur site :
+      <li>Remise retrait sur site :
         <ul>
           <li>Pas de minimum de commande</li>
           <li>– 1,20 €/kg sur la grille de base</li>
@@ -165,6 +163,22 @@
       </li>
     </ul>
   </section>
+
+  <!-- Tableau réduit à exporter -->
+  <table id="export-table" style="width:100%; border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th style="border:1px solid #ccc;padding:4px;">Produit</th>
+        <th style="border:1px solid #ccc;padding:4px;">Prix €/kg avant remise</th>
+        <th style="border:1px solid #ccc;padding:4px;">Poids/poche</th>
+        <th style="border:1px solid #ccc;padding:4px;">Qté (poche)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- sera rempli dynamiquement -->
+    </tbody>
+  </table>
+</div>
     <table id="order-table">
       <thead>
         <tr>
@@ -335,38 +349,57 @@
   </div>
 </footer>
 
- <!-- Scripts -->
+<!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
   <script src="assets/js/calculateur.js"></script>
-<!-- html2pdf.js (permet la génération de PDF depuis du HTML) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const btn = document.getElementById('btn-export-grid');
-  if (!btn || typeof html2pdf !== 'function') return;
 
-  btn.addEventListener('click', () => {
-    // on peut masquer ce qui ne doit pas apparaître
-    document.body.classList.add('pdf-mode');
+  <!-- Script d’export grille PDF -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('btn-export-grid');
+      if (!btn) return;
 
-    const options = {
-      margin:       [0.5, 0.5, 0.5, 0.5],
-      filename:     'grille-tarifaire-09-06-25-au-15-06-25.pdf',
-      html2canvas:  { scale: 2 },
-      jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
-    };
+      btn.addEventListener('click', () => {
+        // 1) remplir export-table
+        const exportTbody = document.querySelector('#export-table tbody');
+        exportTbody.innerHTML = '';
+        document.querySelectorAll('#order-table tbody tr').forEach(tr => {
+          const inp = tr.querySelector('input.qty');
+          if (!inp) return;
+          const qty     = inp.value || '';
+          const cols    = tr.querySelectorAll('td');
+          const produit = cols[0].textContent.trim();
+          const prix    = cols[1].textContent.trim();
+          const poids   = cols[2].textContent.trim();
+          const row = `
+            <tr>
+              <td style="border:1px solid #ccc;padding:4px;">${produit}</td>
+              <td style="border:1px solid #ccc;padding:4px;">${prix}</td>
+              <td style="border:1px solid #ccc;padding:4px;">${poids}</td>
+              <td style="border:1px solid #ccc;padding:4px;">${qty}</td>
+            </tr>`;
+          exportTbody.insertAdjacentHTML('beforeend', row);
+        });
 
-    html2pdf()
-      .set(options)
-      .from(document.getElementById('grid-summary'))
-      .save()
-      .finally(() => {
-        document.body.classList.remove('pdf-mode');
+        // 2) afficher conteneur pdf
+        const summary = document.getElementById('grid-summary');
+        summary.style.display = 'block';
+
+        // 3) générer PDF
+        html2pdf()
+          .set({
+            margin:      [0.5,0.5,0.5,0.5],
+            filename:    'Grille-tarifaire-09-06-25-au-15-06-25.pdf',
+            html2canvas: { scale: 2 },
+            jsPDF:       { unit: 'in', format: 'a4', orientation: 'portrait' }
+          })
+          .from(summary)
+          .save()
+          .finally(() => summary.style.display = 'none');
       });
-  });
-});
-</script>
+    });
+  </script>
 </body>
 </html>
-
+ 
