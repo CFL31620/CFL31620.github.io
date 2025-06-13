@@ -544,23 +544,46 @@ th, td {
     flex-direction: column;
   }
 }
+/* ==========================================================================
+   1) Conteneur PDF hors-écran en lecture normale
+   ========================================================================== */
+#grid-summary {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  visibility: hidden;
+}
 
-/* Quand on est en mode “pdf” on cache .actions */
-body.pdf-mode .actions
+/* ==========================================================================
+   2) En PDF-mode, on replace #grid-summary dans le flux pour html2pdf
+   ========================================================================== */
+body.pdf-mode #grid-summary {
+  position: static;
+  visibility: visible;
+}
+
+/* ==========================================================================
+   3) En mode “pdf”, on cache .actions, nav et le bouton de la grille
+   ========================================================================== */
+body.pdf-mode .actions,
 body.pdf-mode nav,
 body.pdf-mode #btn-export-grid {
-display: none !important;
+  display: none !important;
 }
-/* ========== Masquer la section Conditions & Remises à l’écran ========== */
+
+/* ==========================================================================
+   4) Masquer la section “Conditions & Remises” à l’écran
+   ========================================================================== */
 .pricing-conditions {
   display: none;
 }
 
-/* ========== Au moment de l’export PDF, on la ré-affiche ========== */
+/* ==========================================================================
+   5) Réafficher “Conditions & Remises” uniquement en PDF-mode
+   ========================================================================== */
 body.pdf-mode .pricing-conditions {
   display: block !important;
 }
-
 /* Boutons CFL bleus */
 .btn-cfl {
   background-color: #00529b;
