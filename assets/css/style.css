@@ -693,32 +693,4 @@ body.pdf-mode #grid-summary {
   padding: 1rem;
 }
 
-/* ========== 3) Réaffichage normal de la section Conditions & Remises ========== */
-.pricing-conditions {
-  display: block;
-}
-
-/* ========== 4) Vos boutons CFL bleus et centré restent pour l’écran ========== */
-.btn-cfl {
-  background-color: #00529b;
-  color: #fff;
-  border: none;
-  padding: 0.5rem 1rem;
-  margin: 0.5rem;
-  border-radius: 4px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-.btn-cfl:hover {
-  background-color: #003f6b;
-}
-.actions-grid {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin: 1.5rem 0;
-}
-
 
