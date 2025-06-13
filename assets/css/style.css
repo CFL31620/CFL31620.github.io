@@ -552,6 +552,7 @@ th, td {
   top: -9999px;
   left: -9999px;
   visibility: hidden;
+  width: 210mm;   /* largeur A4 pour html2pdf */
 }
 
 /* ==========================================================================
@@ -565,8 +566,8 @@ body.pdf-mode #grid-summary {
 /* ==========================================================================
    3) En mode “pdf”, on cache .actions, nav et le bouton de la grille
    ========================================================================== */
-body.pdf-mode .actions,
 body.pdf-mode nav,
+body.pdf-mode .actions,
 body.pdf-mode #btn-export-grid {
   display: none !important;
 }
@@ -584,6 +585,7 @@ body.pdf-mode #btn-export-grid {
 body.pdf-mode .pricing-conditions {
   display: block !important;
 }
+
 /* Boutons CFL bleus */
 .btn-cfl {
   background-color: #00529b;
