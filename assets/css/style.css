@@ -564,8 +564,6 @@ th, td {
 
 .actions-grid {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
   margin: 1.5rem 0;
 }
