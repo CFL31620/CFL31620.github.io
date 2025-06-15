@@ -545,70 +545,40 @@ th, td {
  }
 }  /* ← on ferme ici le @media */
 
-/* ========================================================================== */
-/* PDF-MODE : masquer tout le site, puis n’afficher que #grid-summary          */
-/* ========================================================================== */
+/* ==========================================================================
+   Masquage par défaut à l’écran
+   ========================================================================== */
+#grid-summary,
+.pricing-conditions {
+  display: none !important;
+}
 
-/* 1) Au clic PDF, on ajoute .pdf-mode sur <body> : on cache tout d’abord  */
+/* ==========================================================================
+   PDF-MODE : quand on ajoute .pdf-mode sur <body>, on masque tout Sauf :
+   #grid-summary et .pricing-conditions
+   ========================================================================== */
+/* 1) masquons tout */
 body.pdf-mode * {
   display: none !important;
 }
 
-/* 2) Puis on réaffiche uniquement le conteneur d’export + ses enfants */
+/* 2) réaffichons seulement la grille et les conditions */
 body.pdf-mode #grid-summary,
-body.pdf-mode #grid-summary * {
+body.pdf-mode .pricing-conditions {
   display: block !important;
 }
 
-/* 3) Mise en page de #grid-summary pour html2pdf */
+/* 3) mise en page A4 pour html2pdf */
 body.pdf-mode #grid-summary {
-  position: static;
-  visibility: visible;
-  width: 210mm;    /* taille A4 portrait */
-  margin: 0 auto;
-  background: #fff;
-  padding: 1rem;
-  box-sizing: border-box;
+  position: static !important;
+  visibility: visible !important;
+  width: 210mm !important;
+  margin: 0 auto !important;
+  background: #fff !important;
+  padding: 1rem !important;
+  box-sizing: border-box !important;
 }
 
-/* 4) Ajustements internes */
-/* – export-header (logo) */
-body.pdf-mode #grid-summary .export-header {
-  margin-bottom: 1rem;
-}
-body.pdf-mode #grid-summary .export-header img {
-  height: 50px;
-  display: inline-block;
-}
-
-/* – section Conditions & Remises */
-body.pdf-mode #grid-summary .pricing-conditions {
-  margin-bottom: 1rem;
-  font-size: 0.9rem;
-}
-body.pdf-mode #grid-summary .pricing-conditions h3 {
-  margin-top: 0;
-  color: #00529b;
-}
-body.pdf-mode #grid-summary .pricing-conditions .conditions-list {
-  list-style: disc inside;
-  margin: 0.5rem 0 1rem 1rem;
-  padding: 0;
-}
-
-/* – tableau exporté */
-body.pdf-mode #grid-summary #export-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 0;
-}
-body.pdf-mode #grid-summary #export-table th,
-body.pdf-mode #grid-summary #export-table td {
-  border: 1px solid #333;
-  padding: 0.4rem;
-  text-align: left;
-  font-size: 0.85rem;
-}
 /* ==========================================================================
    3) Style des boutons CFL et centrage du groupe de boutons (affichage normal)
    ========================================================================== */
