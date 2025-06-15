@@ -544,27 +544,35 @@ th, td {
     flex-direction: column;
  }
 }  /* ← on ferme ici le @media */
-/* ==========================================================================
-   3) Style des boutons CFL et centrage du groupe de boutons (affichage normal)
+/* ========================================================================== 
+   Style des boutons CFL et centrage du groupe de boutons (affichage normal) 
    ========================================================================== */
 .btn-cfl {
   background-color: #00529b;
   color: #fff;
   border: none;
   padding: 0.5rem 1rem;
-  margin: 0.5rem;
+  /* on supprime la marge individuelle, gérée par le conteneur */
+  margin: 0;
   border-radius: 4px;
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.2s;
+  text-decoration: none; /* pour les <a> */
 }
 .btn-cfl:hover {
   background-color: #003f6b;
 }
 
+/* Conteneur centré pour ces actions, avec espacement homogène */
+.actions,
 .actions-grid {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
-  margin: 1.5rem 0;
+  gap: 0.5rem;       /* espace entre chaque bouton */
+  margin: 1.5rem 0;  /* marge verticale du conteneur */
 }
+
 
