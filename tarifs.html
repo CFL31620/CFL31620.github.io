@@ -111,13 +111,19 @@
     <input type="date" id="date-choisie" name="date-choisie" />
   </form>
 
+<div class="actions">
+  <button type="button" id="btn-pdf">📄 Générer PDF de la commande</button>
+  <button type="button" onclick="location.href='mailto:ventes@cfl-services.fr'">📧 Mail</button>
+  <button type="button" onclick="window.open('https://wa.me/33616070555')">💬 WhatsApp</button>
+</div>
+
 <div class="actions-grid">
   <button id="btn-calcul" class="btn-cfl">Mettre à jour les prix</button>
-  <!-- Nouveau lien qui télécharge directement la grille PNG -->
   <a class="btn-cfl" href="assets/img/grille.pdf" download="Grille-tarifaire-CFL.pdf">
-  📄 Télécharger la grille tarifaire
-</a>
+    📄 Télécharger la grille tarifaire
+  </a>
 </div>
+
 
 <!-- ===== TABLEAU PRINCIPAL ===== -->
 <table id="order-table">
@@ -234,16 +240,6 @@
     </tfoot>
   </table>
 </div>
-         <!-- Boutons d’action -->
-    <div class="actions">
-      <button type="button" id="btn-pdf">📄 Générer PDF de la commande </button>
-      <button type="button" onclick="location.href='mailto:ventes@cfl-services.fr'">
-        📧 Mail
-      </button>
-      <button type="button" onclick="window.open('https://wa.me/33616070555')">
-        💬 WhatsApp
-      </button>
-    </div>
   </main>
 
 <footer>
