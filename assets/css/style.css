@@ -569,28 +569,4 @@ th, td {
   flex-wrap: wrap;
   margin: 1.5rem 0;
 }
-/* ========================================================================== */
-/* PDF-MODE : quand on ajoute .pdf-mode sur <body>, on cache tout             */
-/* puis on réaffiche #grid-summary et TOUT son contenu                       */
-/* ========================================================================== */
-/* 1) on part de tout cacher */
-body.pdf-mode * {
-  display: none !important;
-}
-/* 2) on réaffiche le conteneur export ET tous ses enfants */
-body.pdf-mode #grid-summary,
-body.pdf-mode #grid-summary * {
-  display: block !important;
-}
-/* 3) on remet juste en page A4 ce conteneur */
-body.pdf-mode #grid-summary {
-  position: static !important;
-  visibility: visible !important;
-  width: 210mm !important;
-  margin: 0 auto !important;
-  background: #fff !important;
-  padding: 1rem !important;
-  box-sizing: border-box !important;
-}
-
 
