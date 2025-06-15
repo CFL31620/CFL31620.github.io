@@ -336,32 +336,31 @@ document.getElementById('btn-export-grid').addEventListener('click', () => {
   const exportTbody = document.querySelector('#export-table tbody');
   exportTbody.innerHTML = '';
 
-  // 2) On parcourt la grille principale
+  // 2) On parcourt TOUTES les lignes (même qty = 0)
   document.querySelectorAll('#order-table tbody tr').forEach(tr => {
     const inp = tr.querySelector('input.qty');
-    if (!inp) return;  // ignore titres
+    if (!inp) return;  // ignore les titres
 
     const produit = tr.cells[0].textContent.trim();
     const prix    = tr.cells[1].textContent.trim();
     const qty     = inp.value.trim();
 
-    // 3) On ajoute une ligne dans export-table
+    // 3) On ajoute la ligne dans export-table
     const row = `
       <tr>
         <td style="border:1px solid #ccc;padding:4px;">${produit}</td>
         <td style="border:1px solid #ccc;padding:4px;">${prix}</td>
-        <td style="border:1px solid #ccc;padding:4px;">${qty}</td>
       </tr>`;
     exportTbody.insertAdjacentHTML('beforeend', row);
   });
 
-  // 4) On active pdf-mode pour que #grid-summary soit dans le flux
+  // 4) On active le mode PDF
   document.body.classList.add('pdf-mode');
 
-  // 5) On génère le PDF
+  // 5) Génération du PDF
   html2pdf()
     .set({
-      margin:      [0.5, 0.5, 0.5, 0.5],  // pouces : haut / droite / bas / gauche
+      margin:      [0.5, 0.5, 0.5, 0.5],
       filename:    'Grille-tarifaire.pdf',
       html2canvas: { scale: 2 },
       jsPDF:       { unit: 'in', format: 'a4', orientation: 'portrait' }
@@ -369,11 +368,11 @@ document.getElementById('btn-export-grid').addEventListener('click', () => {
     .from(document.getElementById('grid-summary'))
     .save()
     .finally(() => {
-      // 6) On désactive pdf-mode pour revenir à l’affichage normal
+      // 6) On désactive le mode PDF
       document.body.classList.remove('pdf-mode');
     });
 });
-  </script>
+</script>
 </body>
 </html>
  

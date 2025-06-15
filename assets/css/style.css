@@ -545,26 +545,27 @@ th, td {
  }
 }  /* ← on ferme ici le @media */
 
-/* ==========================================================================
-   Masquage par défaut à l’écran
-   ========================================================================== */
+/* ========================================================================== */
+/*  Masquage par défaut à l’écran                                             */
+/* ========================================================================== */
 #grid-summary,
 .pricing-conditions {
   display: none !important;
 }
 
-/* ==========================================================================
-   PDF-MODE : quand on ajoute .pdf-mode sur <body>, on masque tout Sauf :
-   #grid-summary et .pricing-conditions
-   ========================================================================== */
-/* 1) masquons tout */
+/* ========================================================================== */
+/*  PDF-MODE : quand .pdf-mode est ajouté sur <body>, on masque tout, puis    */
+/*  on réaffiche UNIQUEMENT #grid-summary et son contenu (y compris les      */
+/*  tables, le logo, les textes…)                                            */
+/* ========================================================================== */
+/* 1) on cache tout le site */
 body.pdf-mode * {
   display: none !important;
 }
 
-/* 2) réaffichons seulement la grille et les conditions */
+/* 2) on réaffiche le conteneur ET **tous ses enfants** */
 body.pdf-mode #grid-summary,
-body.pdf-mode .pricing-conditions {
+body.pdf-mode #grid-summary * {
   display: block !important;
 }
 
@@ -577,6 +578,27 @@ body.pdf-mode #grid-summary {
   background: #fff !important;
   padding: 1rem !important;
   box-sizing: border-box !important;
+}
+
+/* 4) (Optionnel) ajustements internes si besoin */
+body.pdf-mode #grid-summary .export-header {
+  margin-bottom: 1rem;
+}
+body.pdf-mode #grid-summary .pricing-conditions {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+body.pdf-mode #grid-summary #export-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+}
+body.pdf-mode #grid-summary #export-table th,
+body.pdf-mode #grid-summary #export-table td {
+  border: 1px solid #333;
+  padding: 0.4rem;
+  text-align: left;
+  font-size: 0.85rem;
 }
 
 /* ==========================================================================
