@@ -546,7 +546,7 @@ th, td {
 }  /* ← on ferme ici le @media */
 
 /* ========================================================================== */
-/* 1) À l’écran, on cache la grille PDF et la section Conditions & Remises    */
+/* 1) À l’écran : tout est masqué (grille + Conditions & Remises)             */
 /* ========================================================================== */
 #grid-summary,
 .pricing-conditions {
@@ -554,41 +554,84 @@ th, td {
 }
 
 /* ========================================================================== */
-/* 2) En mode PDF (body.pdf-mode), on n’affiche QUE la grille + la section    */
-/*    Conditions & Remises, et on masque tout le reste                        */
+/* 2) En PDF-mode : on masque tout SAUF #grid-summary et .pricing-conditions  */
 /* ========================================================================== */
-/* on ne remet plus body.pdf-mode * {…} */
-body.pdf-mode nav,
-body.pdf-mode header,
-body.pdf-mode footer,
-body.pdf-mode #form-calcul,
-body.pdf-mode .actions,
-body.pdf-mode .actions-grid,
-body.pdf-mode #btn-calcul,
-body.pdf-mode #btn-export-grid,
-body.pdf-mode #btn-pdf {
+body.pdf-mode * {
   display: none !important;
 }
-
-/* on réaffiche le conteneur ET tout ce qu’il contient */
 body.pdf-mode #grid-summary,
-body.pdf-mode #grid-summary * {
+body.pdf-mode #grid-summary *,
+body.pdf-mode .pricing-conditions,
+body.pdf-mode .pricing-conditions * {
   display: block !important;
 }
 
-/* on réaffiche aussi la section Remises */
-body.pdf-mode .pricing-conditions {
-  display: block !important;
-}
-
-/* Ajustements pour le PDF */
+/* ========================================================================== */
+/* 3) Mise en page du conteneur PDF                                            */
+/* ========================================================================== */
 body.pdf-mode #grid-summary {
   position: static;
   visibility: visible;
-  width: 210mm;    /* format A4 */
+  width: 210mm;      /* A4 portrait */
   margin: 0 auto;
   background: #fff;
   padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* ========================================================================== */
+/* 4) Styling de l’en-tête export                                               */
+/* ========================================================================== */
+body.pdf-mode .export-header {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+body.pdf-mode .export-header img {
+  height: 50px;
+  display: inline-block;
+}
+
+/* ========================================================================== */
+/* 5) Styling de la section Conditions & Remises                                */
+/* ========================================================================== */
+body.pdf-mode .pricing-conditions {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+body.pdf-mode .pricing-conditions h3 {
+  margin-top: 0;
+  color: #00529b;
+}
+body.pdf-mode .pricing-conditions .conditions-list,
+body.pdf-mode .pricing-conditions .conditions-list ul {
+  margin: 0.5rem 0 1rem 1rem;
+  padding: 0;
+  list-style: disc inside;
+}
+
+/* ========================================================================== */
+/* 6) Mise en page du tableau réduit à exporter                                  */
+/* ========================================================================== */
+body.pdf-mode #export-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0;
+}
+body.pdf-mode #export-table th,
+body.pdf-mode #export-table td {
+  border: 1px solid #333;
+  padding: 0.5rem;
+  text-align: left;
+  font-size: 0.85rem;
+}
+
+/* ========================================================================== */
+/* 7) Si tu as un récap de commande (#pdf-summary), tu peux aussi le cacher en */
+/*    PDF-grille                                                               */
+/* ========================================================================== */
+body.pdf-mode #pdf-summary,
+body.pdf-mode #pdf-summary * {
+  display: none !important;
 }
 
 
