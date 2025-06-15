@@ -546,95 +546,69 @@ th, td {
 }  /* ← on ferme ici le @media */
 
 /* ========================================================================== */
-/* 1) À l’écran : tout est masqué (grille + Conditions & Remises)             */
+/* PDF-MODE : masquer tout le site, puis n’afficher que #grid-summary          */
 /* ========================================================================== */
-#grid-summary,
-.pricing-conditions {
-  display: none !important;
-}
 
-/* ========================================================================== */
-/* 2) En PDF-mode : on masque tout SAUF #grid-summary et .pricing-conditions  */
-/* ========================================================================== */
+/* 1) Au clic PDF, on ajoute .pdf-mode sur <body> : on cache tout d’abord  */
 body.pdf-mode * {
   display: none !important;
 }
+
+/* 2) Puis on réaffiche uniquement le conteneur d’export + ses enfants */
 body.pdf-mode #grid-summary,
-body.pdf-mode #grid-summary *,
-body.pdf-mode .pricing-conditions,
-body.pdf-mode .pricing-conditions * {
+body.pdf-mode #grid-summary * {
   display: block !important;
 }
 
-/* ========================================================================== */
-/* 3) Mise en page du conteneur PDF                                            */
-/* ========================================================================== */
+/* 3) Mise en page de #grid-summary pour html2pdf */
 body.pdf-mode #grid-summary {
   position: static;
   visibility: visible;
-  width: 210mm;      /* A4 portrait */
+  width: 210mm;    /* taille A4 portrait */
   margin: 0 auto;
   background: #fff;
   padding: 1rem;
   box-sizing: border-box;
 }
 
-/* ========================================================================== */
-/* 4) Styling de l’en-tête export                                               */
-/* ========================================================================== */
-body.pdf-mode .export-header {
-  text-align: left;
+/* 4) Ajustements internes */
+/* – export-header (logo) */
+body.pdf-mode #grid-summary .export-header {
   margin-bottom: 1rem;
 }
-body.pdf-mode .export-header img {
+body.pdf-mode #grid-summary .export-header img {
   height: 50px;
   display: inline-block;
 }
 
-/* ========================================================================== */
-/* 5) Styling de la section Conditions & Remises                                */
-/* ========================================================================== */
-body.pdf-mode .pricing-conditions {
+/* – section Conditions & Remises */
+body.pdf-mode #grid-summary .pricing-conditions {
   margin-bottom: 1rem;
   font-size: 0.9rem;
 }
-body.pdf-mode .pricing-conditions h3 {
+body.pdf-mode #grid-summary .pricing-conditions h3 {
   margin-top: 0;
   color: #00529b;
 }
-body.pdf-mode .pricing-conditions .conditions-list,
-body.pdf-mode .pricing-conditions .conditions-list ul {
+body.pdf-mode #grid-summary .pricing-conditions .conditions-list {
+  list-style: disc inside;
   margin: 0.5rem 0 1rem 1rem;
   padding: 0;
-  list-style: disc inside;
 }
 
-/* ========================================================================== */
-/* 6) Mise en page du tableau réduit à exporter                                  */
-/* ========================================================================== */
-body.pdf-mode #export-table {
+/* – tableau exporté */
+body.pdf-mode #grid-summary #export-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 0;
+  margin: 0;
 }
-body.pdf-mode #export-table th,
-body.pdf-mode #export-table td {
+body.pdf-mode #grid-summary #export-table th,
+body.pdf-mode #grid-summary #export-table td {
   border: 1px solid #333;
-  padding: 0.5rem;
+  padding: 0.4rem;
   text-align: left;
   font-size: 0.85rem;
 }
-
-/* ========================================================================== */
-/* 7) Si tu as un récap de commande (#pdf-summary), tu peux aussi le cacher en */
-/*    PDF-grille                                                               */
-/* ========================================================================== */
-body.pdf-mode #pdf-summary,
-body.pdf-mode #pdf-summary * {
-  display: none !important;
-}
-
-
 /* ==========================================================================
    3) Style des boutons CFL et centrage du groupe de boutons (affichage normal)
    ========================================================================== */
