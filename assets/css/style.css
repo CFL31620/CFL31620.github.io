@@ -542,41 +542,45 @@ th, td {
 @media (max-width: 767px) {
   .top-row {
     flex-direction: column;
-  }
-/* ========================================================================== */
-/* 1) À l’écran, on cache totalement le conteneur grille PDF et la section    */
-/*    Conditions & Remises                                                    */
-/* ========================================================================== */
+ }
+}  /* ← on ferme ici le @media */
+
+/* ==========================================================================
+   1) À l’écran, on cache la grille PDF et la section Conditions & Remises
+   ========================================================================== */
 #grid-summary,
 .pricing-conditions {
   display: none !important;
 }
 
-/* ========================================================================== */
-/* 2) En mode PDF (body.pdf-mode), on n’affiche QUE le conteneur grille +     */
-/*    la section Conditions & Remises, et on masque tout le reste             */
-/* ========================================================================== */
+/* ==========================================================================
+   2) En mode PDF, on n’affiche QUE la grille + la section Remises
+      et on masque tout le reste
+   ========================================================================== */
+/* Masquer tout le site */
+body.pdf-mode * {
+  display: none !important;
+}
+
+/* Réafficher ces deux blocs seulement */
 body.pdf-mode #grid-summary,
 body.pdf-mode .pricing-conditions {
   display: block !important;
 }
 
-/* ========================================================================== */
-/* 3) En mode PDF, on cache nav, formulaire & tous les boutons/actions       */
-/* ========================================================================== */
-body.pdf-mode nav,
-body.pdf-mode #form-calcul,
-body.pdf-mode .actions,
-body.pdf-mode .actions-grid,
-body.pdf-mode #btn-calcul,
-body.pdf-mode #btn-export-grid,
-body.pdf-mode #btn-pdf {
-  display: none !important;
+/* Ajustements du conteneur export pour le PDF */
+body.pdf-mode #grid-summary {
+  position: static;
+  visibility: visible;
+  width: 210mm;    /* format A4 */
+  margin: 0 auto;
+  background: #fff;
+  padding: 1rem;
 }
 
-/* ========================================================================== */
-/* 4) Boutons CFL (btn-cfl) — style bleu CFL                                  */
-/* ========================================================================== */
+/* ==========================================================================
+   3) Style des boutons CFL et centrage du groupe de boutons (affichage normal)
+   ========================================================================== */
 .btn-cfl {
   background-color: #00529b;
   color: #fff;
@@ -592,105 +596,12 @@ body.pdf-mode #btn-pdf {
   background-color: #003f6b;
 }
 
-/* ========================================================================== */
-/* 5) Conteneur centré pour les deux boutons                                  */
-/* ========================================================================== */
 .actions-grid {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   margin: 1.5rem 0;
-}
-
-/* ========================================================================== */
-/* 6) (Optionnel) on peut aussi cacher par défaut le conteneur récap commande */
-/*    et ne l’afficher qu’en PDF-mode si besoin                                 */
-/* ========================================================================== */
-#pdf-summary {
-  display: none !important;
-}
-body.pdf-mode #pdf-summary {
-  display: block !important;
-}
-/* ========================================================================== */
-/* 1) À l’écran, on cache uniquement le bloc export (la grille à télécharger) */
-/* ========================================================================== */
-#grid-summary {
-  display: none !important;
-}
-
-/* ========================================================================== */
-/* 2) En mode PDF (body.pdf-mode), on n’affiche QUE le bloc export et sa      */
-/*    section Conditions & Remises, et on masque TOUT le reste                */
-/* ========================================================================== */
-body.pdf-mode {
-  /* on cache l’intégralité de la page */
-  visibility: hidden;
-}
-body.pdf-mode #grid-summary {
-  /* sauf #grid-summary qui redevient visible */
-  display: block !important;
-  visibility: visible;
-  position: static;
-}
-body.pdf-mode #grid-summary * {
-  /* et tous ses éléments internes sont visibles */
-  visibility: visible;
-}
-
-/* ========================================================================== */
-/* 3) Boutons, nav, formulaire et footer totalement masqués en PDF-mode      */
-/* ========================================================================== */
-body.pdf-mode header,
-body.pdf-mode nav,
-body.pdf-mode #form-calcul,
-body.pdf-mode .actions,
-body.pdf-mode .actions-grid,
-body.pdf-mode #btn-calcul,
-body.pdf-mode #btn-export-grid,
-body.pdf-mode #btn-pdf,
-body.pdf-mode footer {
-  display: none !important;
-}
-
-/* ========================================================================== */
-/* 4) On remet par défaut le style des Conditions & Remises du top-row        */
-/* ========================================================================== */
-.pricing-conditions {
-  display: block; /* reste visible en écran */
-}
-
-/* ========================================================================== */
-/* 5) Si tu veux distinguer visuellement la section export dans ton export    */
-/*    tu peux lui donner une marge ou un fond spécifique                      */
-/* ========================================================================== */
-#grid-summary {
-  background: #fff;
-  padding: 1rem;
-  margin: 0 auto;
-  width: 210mm; /* A4 */
-}
-/* ========== 1) À l’écran, on cache le conteneur PDF uniquement ========== */
-#grid-summary {
-  display: none !important;
-}
-
-/* ========== 2) En PDF-mode, masquer tout sauf le conteneur export ========== */
-body.pdf-mode * {
-  display: none !important;
-}
-body.pdf-mode #grid-summary,
-body.pdf-mode .pricing-conditions {
-  display: block !important;
-}
-body.pdf-mode #grid-summary {
-  position: static;
-  visibility: visible;
-  width: 210mm;
-  margin: 0 auto;
-  background: #fff;
-  padding: 1rem;
 }
 
 
