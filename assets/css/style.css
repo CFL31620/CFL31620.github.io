@@ -544,46 +544,10 @@ th, td {
     flex-direction: column;
  }
 }  /* ← on ferme ici le @media */
+
 /* ========================================================================== 
    Style des boutons CFL et centrage du groupe de boutons (affichage normal)
    ========================================================================== */
-.btn-cfl {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  background-color: #00529b;
-  color: #fff;
-  text-decoration: none;       /* pour <a> */
-  border: none;
-  padding: 0.5rem 1rem;
-  margin: 0.5rem;
-  border-radius: 4px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-.btn-cfl:hover {
-  background-color: #003f6b;
-}
-
-.actions-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;     /* centrer horizontalement */
-  align-items: center;         /* centrer verticalement */
-  margin: 1.5rem 0;
-  gap: 0.5rem;                  /* espace uniforme entre les boutons */
-}
-/* === Centrage du tableau principal === */
-#order-table {
-  width: 90%;           /* tu peux adapter */
-  max-width: 1200px;    /* limite sa largeur sur grand écran */
-  margin: 2rem auto;    /* centre horizontalement + espace vertical */
-  border-collapse: collapse;
-}
-
-/* === Style et alignement des boutons CFL === */
 .btn-cfl {
   display: inline-flex;
   align-items: center;
@@ -603,7 +567,7 @@ th, td {
   background-color: #003f6b;
 }
 
-/* === Conteneur pour tous tes boutons d’action === */
+/* Regroupe tous les boutons (export, mail, WhatsApp, calcul) */
 .actions-grid {
   display: flex;
   flex-wrap: wrap;
@@ -612,6 +576,14 @@ th, td {
   gap: 0.5rem;               /* espace entre chaque bouton */
   margin: 1.5rem 0;
   width: 100%;              /* s’étend sur toute la largeur parent */
+}
+
+/* Centrage du tableau principal */
+#order-table {
+  width: 90%;           /* tu peux adapter */
+  max-width: 1200px;    /* limite sa largeur sur grand écran */
+  margin: 2rem auto;    /* centre horizontalement + espace vertical */
+  border-collapse: collapse;
 }
 
 
