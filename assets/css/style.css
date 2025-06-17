@@ -136,28 +136,6 @@ main.offres-images p {
   color: red;         /* passe en rouge */
   font-weight: bold;  /* texte en gras */
 }
-
-/* Boutons d’action sous les visuels (Mail & WhatsApp) */
-.actions {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.actions button {
-  margin: 0 0.5rem;
-  padding: 0.5rem 1rem;
-  background-color: #00529b;     /* bleu CFL */
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-.actions button:hover {
-  background-color: #004080;
-}
-
 /* ========================================================================== */
 /*  FOOTER (footer principal)                                                   */
 /* ========================================================================== */
@@ -556,14 +534,15 @@ th, td {
 }
 
 .actions-grid {
-  width: 100%;              /* prend toute la largeur disponible */
+  width: 100%;              /* prend toute la largeur du parent */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;  /* centre horizontalement */
   align-items: center;      /* centre verticalement */
-  gap: 0.5rem;              /* espace uniforme entre boutons */
+  gap: 0.5rem;              /* espace uniforme */
   margin: 1.5rem 0;
 }
+
 
 
 
