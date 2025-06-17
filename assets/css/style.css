@@ -611,6 +611,7 @@ th, td {
   align-items: center;      /* centre verticalement */
   gap: 0.5rem;               /* espace entre chaque bouton */
   margin: 1.5rem 0;
+  width: 100%;              /* s’étend sur toute la largeur parent */
 }
 
 
