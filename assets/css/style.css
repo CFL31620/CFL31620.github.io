@@ -545,16 +545,16 @@ th, td {
  }
 }  /* ← on ferme ici le @media */
 
-/* ========================================================================== 
-   Style des boutons CFL et centrage du groupe de boutons (affichage normal)
-   ========================================================================== */
+/* ========================================================================== */
+/*  Boutons CFL et centrage du groupe de boutons                              */
+/* ========================================================================== */
 .btn-cfl {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background-color: #00529b;
   color: #fff;
-  text-decoration: none;   /* pour les <a> */
+  text-decoration: none;   /* pour les liens <a> */
   border: none;
   padding: 0.5rem 1rem;
   margin: 0.5rem;
@@ -567,17 +567,15 @@ th, td {
   background-color: #003f6b;
 }
 
-/* Regroupe tous les boutons (export, mail, WhatsApp, calcul) */
 .actions-grid {
+  width: 100%;              /* prend toute la largeur du parent */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;  /* centre horizontalement */
   align-items: center;      /* centre verticalement */
-  gap: 0.5rem;               /* espace entre chaque bouton */
+  gap: 0.5rem;              /* espace uniforme */
   margin: 1.5rem 0;
-  width: 100%;              /* s’étend sur toute la largeur parent */
 }
-
 /* Centrage du tableau principal */
 #order-table {
   width: 90%;           /* tu peux adapter */
