@@ -315,18 +315,6 @@ th, td {
   margin: 1.5rem 0;
   font-weight: 600;
 }
-
-/* Actions PDF/Mail/WhatsApp */
-.actions {
-  margin-top: 1rem;
-}
-.actions button {
-  padding: 0.5rem 1rem;
-  margin-right: 0.5rem;
-  cursor: pointer;
-}
-
-
 /* ========================================================================== */
 /*  Impression (print)                                                         */
 /* ========================================================================== */
@@ -568,20 +556,14 @@ th, td {
 }
 
 .actions-grid {
-  width: 100%;              /* prend toute la largeur du parent */
+  width: 100%;              /* prend toute la largeur disponible */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;  /* centre horizontalement */
   align-items: center;      /* centre verticalement */
-  gap: 0.5rem;              /* espace uniforme */
+  gap: 0.5rem;              /* espace uniforme entre boutons */
   margin: 1.5rem 0;
 }
-/* Centrage du tableau principal */
-#order-table {
-  width: 90%;           /* tu peux adapter */
-  max-width: 1200px;    /* limite sa largeur sur grand écran */
-  margin: 2rem auto;    /* centre horizontalement + espace vertical */
-  border-collapse: collapse;
-}
+
 
 
