@@ -109,17 +109,16 @@
     <label for="date-choisie"><strong>Date souhaitée :</strong></label>
     <input type="date" id="date-choisie" name="date-choisie" />
   </form>
-
-<!-- Regroupement des deux boutons, centré -->
-<div class="actions-grid">
-  <button id="btn-calcul" class="btn-cfl">Mettre à jour les prix</button>
+<!-- Regroupement des boutons, bien centré -->
+<div class="btn-wrapper">
+  <div class="actions-grid">
+    <button id="btn-calcul" class="btn-cfl">Mettre à jour les prix</button>
     <a href="assets/img/grille.pdf"
        download="Grille-tarifaire-CFL.pdf"
        class="btn-cfl">
       📄 Télécharger la grille tarifaire
     </a>
-    <!-- Bouton génération du récap PDF -->
-    <button id="btn-pdf" class="btn-cfl">📄 Générer PDF de la commande </button>
+    <button id="btn-pdf" class="btn-cfl">📄 Générer PDF de la commande</button>
     <button type="button"
             class="btn-cfl"
             onclick="location.href='mailto:ventes@cfl-services.fr'">
@@ -131,6 +130,7 @@
       💬 WhatsApp
     </button>
   </div>
+</div>
 </section>  <!-- on referme bien la section ici -->
 
 <!-- ===== TABLEAU PRINCIPAL ===== -->
