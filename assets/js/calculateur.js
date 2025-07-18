@@ -68,13 +68,29 @@ function updatePrices() {
     totalWeight           += w;
   });
 
-  // B) Remise €/kg & port
-  let discPerKg = 0;
-  if (mode === 'retrait') discPerKg = 1.20;
-  else if (totalWeight >= 100) discPerKg = 0.80;
+// B) Remise €/kg & port
+let discPerKg = 0;
+let port = 0;
+
+// Standardise le mode en minuscules pour éviter les erreurs
+const modeLower = mode.toLowerCase();
+
+if (modeLower === 'retrait') {
+  discPerKg = 1.20;
+  port = 0;
+} else if (modeLower === 'livraison hors occitanie') {
+  discPerKg = 0.80;
+  port = 0;
+} else if (modeLower === 'livraison occitanie') {
+  // Remises par poids
+  if (totalWeight >= 100)      discPerKg = 0.80;
   else if (totalWeight >= 60)  discPerKg = 0.55;
   else if (totalWeight >= 30)  discPerKg = 0.40;
-  let port = mode === 'livraison' && totalWeight < 15 ? 6 : 0;
+  else                         discPerKg = 0;
+
+  // Frais de port si < 15 kg
+  port = totalWeight < 15 ? 6 : 0;
+}
 
   // C) Montants lignes & cumuls
   let sumSansRemise = 0, sumWithRemise = 0;
