@@ -42,7 +42,7 @@ function updatePrices() {
   document.getElementById('prenom-recap').innerText = prenom;
 
   // 1) Mode & Date
-  const mode = document.getElementById('mode').value;
+const mode = document.getElementById('mode').value.trim();
   document.getElementById('mode-recap').innerText =
     mode.charAt(0).toUpperCase() + mode.slice(1);
   document.getElementById('date-recap').innerText =
@@ -72,9 +72,10 @@ function updatePrices() {
 let discPerKg = 0;
 let port = 0;
 
-// Standardise le mode en minuscules pour éviter les erreurs
-const modeLower = mode.toLowerCase();
+const modeRaw = document.getElementById('mode').value.trim();
+const modeLower = modeRaw.toLowerCase();
 
+// Appliquer les règles selon le mode sélectionné
 if (modeLower === 'retrait') {
   discPerKg = 1.20;
   port = 0;
@@ -88,7 +89,7 @@ if (modeLower === 'retrait') {
   else if (totalWeight >= 30)  discPerKg = 0.40;
   else                         discPerKg = 0;
 
-  // Frais de port si < 15 kg
+  // Frais de port uniquement si < 15 kg
   port = totalWeight < 15 ? 6 : 0;
 }
 
