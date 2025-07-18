@@ -542,6 +542,20 @@ th, td {
   gap: 0.5rem;              /* espace uniforme */
   margin: 1.5rem 0;
 }
+.actions-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1.5rem auto;       /* auto pour centrer horizontalement */
+  max-width: 800px;          /* limite la largeur pour éviter l'étalement */
+  text-align: center;
+}
+.btn-cfl {
+  min-width: 200px;
+  text-align: center;
+}
 
 
 
