@@ -248,16 +248,17 @@
     </tfoot>
   </table>
 </div>
-<!-- Bloc boutons bien centré -->
+
+<!-- Deuxième bloc -->
 <div class="btn-wrapper">
   <div class="actions-grid">
-    <button id="btn-calcul" class="btn-cfl">Mettre à jour les prix</button>
+    <button id="btn-calcul-bas" class="btn-cfl">Mettre à jour les prix</button>
     <a href="assets/img/grille.pdf"
        download="Grille-tarifaire-CFL.pdf"
        class="btn-cfl">
       📄 Télécharger la grille tarifaire
     </a>
-    <button id="btn-pdf" class="btn-cfl">📄 Générer PDF de la commande</button>
+    <button id="btn-pdf-bas" class="btn-cfl">📄 Générer PDF de la commande</button>
     <button type="button"
             class="btn-cfl"
             onclick="location.href='mailto:ventes@cfl-services.fr'">
@@ -269,9 +270,8 @@
       💬 WhatsApp
     </button>
   </div>
-</div>
-
-  </main>
+</div>  
+</main>
 
 <footer>
   <div class="footer-container">
@@ -282,10 +282,6 @@
       <p>31 Avenue de Saint Guillan, 31620 Castelnau-d’Estrétefonds
       <p>Tél. : <a href="tel:+33616070555">06 16 07 05 55</a>
       <p>Email : <a href="mailto:ventes@cfl-services.fr">ventes@cfl-services.fr</a>
-      </p>
-      <p>Horaires :
-        <br>Retrait : Mardi & Jeudi 12 h–18 h / Mercredi & Vendredi 11 h–13 h
-        <br>Livraison : Mercredi & Vendredi 8 h–13 h
       </p>
     </div>
 
@@ -323,7 +319,29 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
   <script src="assets/js/calculateur.js"></script>
 
-</script>
+<!-- Script pour les boutons PDF -->
+  <script>
+  document.querySelectorAll('#btn-pdf, #btn-pdf-bas').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const element = document.getElementById('pdf-summary'); // zone à convertir
+      if (!element) {
+        alert('Aucune commande à générer.');
+        return;
+      }
+
+      const opt = {
+        margin:       0.5,
+        filename:     'Commande-CFL.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'cm', format: 'a4', orientation: 'portrait' }
+      };
+
+      html2pdf().set(opt).from(element).save();
+    });
+  });
+  </script>
+
 </body>
 </html>
  
